@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="photo/Lens(2).png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css?v=20260824-images-1">
+    <title>لينس للتصوير والتصميم والمونتاج</title>
+</head>
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <span id="toast-message">Message sent successfully!</span>
+</div>
+
+<!-- Notification Sound -->
+<audio id="toast-sound" preload="none"></audio>
+
+<body>
+    <nav class="nav">
+
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="photo/س.png" alt="Lens Photography Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#Projects">المشاريع</a></li>
+                <li><a href="#About">من نحن</a></li>
+                <li><a href="#Packages">الباقات</a></li>
+                <li><a href="#FAQ">الأسئلة الشائعة</a></li>
+                <li><a href="#Contact">تواصل معنا</a></li>
+            </ul>
+            <button type="button" class="language-toggle" id="language-toggle" aria-label="التبديل إلى الإنجليزية">English</button>
+        </div>
+        
+
+    
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img class="hero-background-img" src="photo/bac.hero.jpg" alt="photography background">
+        <div class="hero-grid-lines" aria-hidden="true"></div>
+        <div class="hero-visual" aria-label="Lens creative production preview">
+            <div class="hero-visual-glow"></div>
+            <div class="hero-software-icons" aria-hidden="true">
+                <img class="software-icon software-icon-ae" src="photo/2.png" alt="">
+                <img class="software-icon software-icon-pr" src="photo/3.png" alt="">
+                <img class="software-icon software-icon-ps" src="photo/Adobe_Photoshop_CC_icon.svg.png" alt="">
+            </div>
+            
+            <div class="hero-preview">
+                <div class="hero-preview-topline"><span class="status-dot"></span> إنتاج لينس <span class="preview-time">00:48</span></div>
+                <div class="hero-preview-image"><img src="photo/bac.hero.jpg" alt="Creative video editing preview"></div>
+                <div class="hero-preview-controls"><span><i class="fas fa-play"></i></span><span class="preview-progress"><b></b></span><span>4K</span></div>
+                <div class="hero-preview-label">فكرتك <strong>إبداعنا</strong></div>
+            </div>
+            <button type="button" class="hero-floating-tag hero-floating-tag-one" data-video="photo/portfolio-video.mp4" aria-label="فتح فيديو الأعمال"><i class="fas fa-film"></i> فيديو</button>
+            <button type="button" class="hero-floating-tag hero-floating-tag-two" data-image="Photography/Photo/1.webp" aria-label="فتح صورة من الأعمال"><i class="fas fa-camera"></i> صورة</button>
+        </div>
+        <div class="hero-content">
+            <div class="hero-kicker"><span></span> فيديو • تصميم • تصوير</div>
+            <h1 class="hero-title">نحوّل الأفكار إلى <em>قصص بصرية.</em></h1>
+            <p class="hero-subtitle">مونتاج وتصوير وتصميم يخطف الانتباه ويجعل علامتك لا تُنسى.</p>
+            <div class="hero-buttons">
+                <a href="#Contact" class="btn btn-primary">ابدأ مشروعك <i class="fas fa-arrow-left"></i></a>
+                <a href="#Projects" class="btn btn-secondary">شاهد أعمالنا</a>
+            </div>
+            <div class="hero-proof"><span><i class="fas fa-check"></i> تسليم سريع</span><span><i class="fas fa-check"></i> جاهز للنشر</span><span><i class="fas fa-check"></i> أسلوب مميز</span></div>
+            <div class="hero-icons">
+                
+<button class="Btn">
+ <span class="svgContainer">
+   <svg fill="white" class="svgIcon" viewBox="0 0 448 512" height="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+ </span>
+ <span class="BG"></span>
+</button>
+
+<!-- From Uiverse.io by Gaurang7717 --> 
+<button class="Btn">
+  <span class="svgContainer">
+    <svg viewBox="0 0 16 16" height="2.5em" class="svgIcon" fill="white">
+      <path
+        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"
+      ></path>
+    </svg>
+  </span>
+  <span class="BG"></span>
+</button>
+
+<!-- From Uiverse.io by vinodjangid07 --> 
+<button class="Btn">
+  <span class="svgContainer">
+    <svg
+      viewBox="0 0 320 512"
+      height="1.3em"
+      xmlns="http://www.w3.org/2000/svg"
+      class="svgIcon"
+      fill="white"
+    >
+      <path
+        d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+      ></path>
+    </svg>
+  </span>
+  <span class="BG"></span>
+</button>
+
+
+            </div>
+        </div>
+
+        <!-- From Uiverse.io by mrhyddenn --> 
+<div class="scrolldown" style="--color: skyblue">
+    <div class="chevrons">
+        <div class="chevrondown"></div>
+        <div class="chevrondown"></div>
+    </div>
+</div>
+    </section>
+
+    <div class="media-modal" id="video-modal" aria-hidden="true" role="dialog" aria-label="Portfolio video">
+        <button type="button" class="media-modal-close" aria-label="Close video">&times;</button>
+        <video id="portfolio-video" controls playsinline preload="metadata"></video>
+    </div>
+
+    <div class="media-modal" id="image-modal" aria-hidden="true" role="dialog" aria-label="Portfolio photo">
+        <button type="button" class="media-modal-close" aria-label="Close photo">&times;</button>
+        <img id="portfolio-image" src="" alt="Portfolio preview">
+    </div>
+
+    <!--rell section-->
+    <section id="Reel" class="reel-section">
+        <div class="container">
+            <div class="reel-heading">
+                <span class="reel-kicker"><i class="fas fa-play"></i> SHOWREEL 2025</span>
+                <h2 class="section-title">شاهد إبداعنا <em>في الحركة.</em></h2>
+                <p class="section-subtitle">مختارات سريعة من المونتاج والتصوير والتصميم الذي نصنعه للعلامات والمبدعين.</p>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-frame-top"><span><i class="fas fa-circle"></i> LENS REEL</span><span>00:48 <b>4K</b></span></div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Fj8rdrOJlHQ" title="فيديو مختارات لينس" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-frame-bottom"><span>EDITING / PHOTO / DESIGN</span><span>PLAY YOUR STORY <i class="fas fa-arrow-left"></i></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="Projects" class="section projects-section">
+        <div class="container">
+            <div class="projects-heading">
+                <span class="projects-kicker"><i class="fas fa-layer-group"></i> أعمالنا الأخيرة</span>
+                <h2 class="section-title">مختارات من <em>أعمالنا.</em></h2>
+                <p class="section-subtitle">مشاريع حقيقية للقنوات والعلامات التجارية والحملات.</p>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="YouTube series highlights thumbnail" src="https://images.unsplash.com/photo-1696389500310-cd6d247cb609" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">مختارات من سلسلة يوتيوب</h3>
+                        <p class="project-description">مونتاج سريع مع موشن جرافيك وسرد قصصي يحافظ على تفاعل الجمهور.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="TikTok product ads thumbnail" src="https://images.unsplash.com/photo-1694878981702-150c7d04f874" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">إعلانات منتجات تيك توك</h3>
+                        <p class="project-description">عرض حيوي للمنتجات مع أصوات رائجة وترجمة وخطافات تلفت الانتباه.</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="YouTube vlog editing thumbnail" src="https://images.unsplash.com/photo-1624893395745-a85e2a959c74" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">تصوير فوتوغرافي</h3>
+                        <p class="project-description">مجموعة صور فوتوغرافية مختارة بعناية لإظهار التفاصيل والهوية.</p>
+                        <a href="Photography/index.html" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الصور <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="Instagram tutorial reels thumbnail" src="https://images.unsplash.com/photo-1698997367452-2abb541edf28" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">ريلز تعليمية لإنستجرام</h3>
+                        <p class="project-description">محتوى تعليمي واضح مع نصوص وعلامات وخطوات بإيقاع جذاب.</p>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="Packages" class="section packages-section">
+        <div class="container">
+            <h2 class="section-title">الباقات</h2>
+            <p class="section-subtitle">خطط مرنة للمونتاج مصممة حسب محتواك ومنصتك وأهداف نموك.</p>
+            <div class="packages-grid">
+                <article class="package-card">
+                    <div class="package-icon"><i class="fas fa-bolt"></i></div>
+                    <p class="package-eyebrow">للمحتوى السريع</p>
+                    <h3 class="package-name">البداية</h3>
+                    <p class="package-description">باقة مركزة للمبدعين الذين يحتاجون فيديوهات قصيرة مصقولة وجاهزة للنشر.</p>
+                    <div class="package-price">00$<span>لكل مشروع</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> مونتاج فيديوهات قصيرة</li>
+                        <li><i class="fas fa-check"></i> ترجمة وتصميم صوتي</li>
+                        <li><i class="fas fa-check"></i> جولتان من التعديلات</li>
+                        <li><i class="fas fa-check"></i> تصدير جاهز للمنصة</li>
+                    </ul>
+                    <a href="#Contact" class="package-button">اختر البداية <i class="fas fa-arrow-left"></i></a>
+                </article>
+
+                <article class="package-card package-card-featured">
+                    <span class="package-badge">الأكثر طلبًا</span>
+                    <div class="package-icon"><i class="fas fa-clapperboard"></i></div>
+                    <p class="package-eyebrow">للنمو المستمر</p>
+                    <h3 class="package-name">صانع المحتوى</h3>
+                    <p class="package-description">سير عمل شهري متكامل للمبدعين الذين يريدون أسلوبًا ثابتًا وسردًا أقوى.</p>
+                    <div class="package-price">00$<span>شهريًا</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> مونتاج قصير وطويل</li>
+                        <li><i class="fas fa-check"></i> موشن جرافيك وصور مصغرة</li>
+                        <li><i class="fas fa-check"></i> توجيه بصري للمحتوى</li>
+                        <li><i class="fas fa-check"></i> أولوية في التسليم</li>
+                    </ul>
+                    <a href="#Contact" class="package-button">اختر صانع المحتوى <i class="fas fa-arrow-left"></i></a>
+                </article>
+
+                <article class="package-card">
+                    <div class="package-icon"><i class="fas fa-gem"></i></div>
+                    <p class="package-eyebrow">للعلامات التجارية والحملات</p>
+                    <h3 class="package-name">العلامة التجارية</h3>
+                    <p class="package-description">شراكة إبداعية مخصصة للعلامات التجارية والحملات وفِرق المحتوى الكبيرة.</p>
+                    <div class="package-price">00$<span>خطة مخصصة</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> دعم إبداعي متكامل</li>
+                        <li><i class="fas fa-check"></i> باقات محتوى للحملات</li>
+                        <li><i class="fas fa-check"></i> خيارات تصوير وتصميم</li>
+                        <li><i class="fas fa-check"></i> سير عمل مخصص للمشروع</li>
+                    </ul>
+                    <a href="#Contact" class="package-button">اختر العلامة التجارية <i class="fas fa-arrow-left"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="About" class="section about-section">
+        <div class="container">
+            <div class="about-heading">
+                <span class="about-kicker"><i class="fas fa-sparkles"></i> خلف الكواليس</span>
+                <h2 class="section-title">من نحن <em>ولماذا لينس؟</em></h2>
+                <p class="section-subtitle">فريق إبداعي يحوّل الفكرة الخام إلى محتوى له حضور وشخصية.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img class="about-image" alt="Computer monitor showing a video editing timeline with colorful clips and audio waveforms" src="https://images.unsplash.com/photo-1653043586925-cfb4676c69a2" />
+                    <span class="about-image-label"><i class="fas fa-circle"></i> LENS CREATIVE STUDIO</span>
+                </div>
+                <div class="about-content">
+                    <p class="about-text">نحن فريق متخصص في مونتاج فيديوهات السوشيال ميديا والتصوير والتصميم. نركز على جذب المشاهد من الثواني الأولى، والحفاظ على تفاعله، وبناء محتوى يحكي قصة قوية بأسلوب مناسب لكل منصة.</p>
+                    <div class="skills-section">
+                        <h3 class="skills-title">ماذا نقدم</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-video"></i> مونتاج فيديوهات يوتيوب الطويلة</li>
+                            <li><i class="fas fa-mobile-alt"></i> محتوى قصير لتيك توك وريلز</li>
+                            <li><i class="fas fa-closed-captioning"></i> الترجمة والكتابة على الفيديو</li>
+                            <li><i class="fas fa-magic"></i> موشن جرافيك أساسي</li>
+                            <li><i class="fas fa-palette"></i> تلوين وتصميم صوتي</li>
+                            <li><i class="fas fa-tools"></i> Premiere Pro وAfter Effects وDaVinci</li>
+                        </ul>
+                    </div>
+                    <div class="about-stats"><span><strong>3×</strong> مجالات إبداعية</span><span><strong>1</strong> رؤية متكاملة</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="process-heading">
+                <span class="process-kicker"><i class="fas fa-route"></i> خطوات واضحة</span>
+                <h2 class="section-title">كيف نعمل <em>معًا؟</em></h2>
+                <p class="section-subtitle">من أول فكرة لحد النسخة النهائية، كل خطوة محسوبة وواضحة.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3 class="process-step-title">شارك محتواك وأهدافك</h3>
+                    <p class="process-step-description">احكِ لنا عن قناتك أو علامتك وشارك الملفات الخام ورؤيتك.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3 class="process-step-title">احصل على أسلوب مصمم لك</h3>
+                    <p class="process-step-description">نصمم طريقة مونتاج تناسب هويتك وتساعد محتواك على تحقيق نتائج أفضل.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3 class="process-step-title">راجع وعدّل</h3>
+                    <p class="process-step-description">ستحصل على نسخة أولية للمراجعة ونعدّلها حتى تصل للنتيجة التي تتخيلها.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="Testimonials" class="section testimonials-section">
+        <div class="container">
+            <div class="testimonials-heading">
+                <span class="testimonials-kicker"><i class="fas fa-quote-right"></i> تجارب حقيقية</span>
+                <h2 class="section-title">ماذا يقول <em>عملاؤنا؟</em></h2>
+                <p class="section-subtitle">كلمات من أصحاب المحتوى الذين عملنا معهم.</p>
+            </div>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <p class="testimonial-quote">"لينس ساعدني أحوّل قناتي إلى محتوى احترافي. فهمهم للإيقاع والسرد ممتاز."</p>
+                    <div class="testimonial-author">
+                        <strong>سارة جونسون</strong>
+                        <span>صانعة محتوى على يوتيوب</span>
+                    </div>
+                </article>
+
+
+                <article class="testimonial-card">
+                    <p class="testimonial-quote">"تسليم سريع وجودة احترافية ودائمًا يفهمون المطلوب من أول مرة."</p>
+                    <div class="testimonial-author">
+                        <strong>إيميلي رودريغيز</strong>
+                        <span>مديرة سوشيال ميديا</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <p class="testimonial-quote">"الاهتمام بالتفاصيل واضح في كل قصّة وانتقال وترجمة. هذا ما يميزهم."</p>
+                    <div class="testimonial-author">
+                        <strong>ديفيد بارك</strong>
+                        <span>صانع محتوى</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section-->
+    <section id="FAQ" class="section faq-section">
+        <div class="container">
+            <div class="faq-heading">
+                <span class="faq-kicker"><i class="fas fa-circle-question"></i> قبل أن نبدأ</span>
+                <h2 class="section-title">الأسئلة <em>الشائعة.</em></h2>
+                <p class="section-subtitle">إجابات سريعة على أهم الأسئلة قبل بداية مشروعك.</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">كيف يتم تحديد السعر؟</summary>
+                    <div class="faq-answer">
+                        <p>نوفر باقات أو تسعيرًا لكل فيديو حسب احتياجك. تواصل معنا لنحدد عرضًا مناسبًا لنوع المحتوى ومدته وتعقيده.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">ما مدة التسليم المعتادة؟</summary>
+                    <div class="faq-answer">
+                        <p>محتوى تيك توك وريلز يستغرق عادة من يومين إلى ثلاثة أيام عمل، وفيديوهات يوتيوب من خمسة إلى سبعة أيام حسب التفاصيل.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">كم عدد التعديلات المتاحة؟</summary>
+                    <div class="faq-answer">
+                        <p>يشمل كل مشروع جولتين من التعديلات لضمان رضاك الكامل.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">كيف نشارك الملفات؟</summary>
+                    <div class="faq-answer">
+                        <p>يمكنك استخدام Google Drive أو Dropbox أو WeTransfer أو Frame.io، وسنسلّمك الملفات بالجودة والصيغة التي تفضلها.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">هل تعملون مع المبدعين الجدد؟</summary>
+                    <div class="faq-answer">
+                        <p>نعم، نعمل مع المبدعين في كل المراحل ونصمم أسلوبنا حسب احتياجاتك وأهدافك.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-heading">
+                <span class="contact-kicker"><i class="fas fa-paper-plane"></i> لنعمل معًا</span>
+                <h2 class="section-title">جاهز لتطوير <em>محتواك؟</em></h2>
+                <p class="section-subtitle">شاركنا قناتك وأسلوبك وأهدافك، وسنرد عليك بأفكار وخيارات مناسبة.</p>
+            </div>
+
+            <form id="project-contact-form" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">الاسم *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="brand">اسم العلامة أو القناة</label>
+                    <input type="text" id="brand" name="brand">
+                </div>
+
+                <div class="form-group">
+                    <label>المنصات</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+              <input type="checkbox" name="platform" value="youtube">
+              <span>يوتيوب</span>
+            </label>
+                        <label class="checkbox-label">
+              <input type="checkbox" name="platform" value="tiktok">
+              <span>تيك توك</span>
+            </label>
+                        <label class="checkbox-label">
+              <input type="checkbox" name="platform" value="instagram">
+              <span>إنستجرام</span>
+            </label>
+                        <label class="checkbox-label">
+              <input type="checkbox" name="platform" value="photography">
+              <span>تصوير</span>
+            </label>
+                        <label class="checkbox-label">
+              <input type="checkbox" name="platform" value="other">
+              <span>أخرى</span>
+            </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>نوع المحتوى</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+              <input type="radio" name="content-type" value="short-form">
+              <span>محتوى قصير</span>
+            </label>
+                        <label class="radio-label">
+              <input type="radio" name="content-type" value="long-form">
+              <span>محتوى طويل</span>
+            </label>
+                        <label class="radio-label">
+              <input type="radio" name="content-type" value="both">
+              <span>الاثنان</span>
+            </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">رسالة أو تفاصيل المشروع</label>
+                    <textarea id="message" name="message" rows="6"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">إرسال الرسالة</button>
+            </form>
+
+            <form id="quick-contact-form" class="contact-form quick-contact-form" data-whatsapp-number="201093310936">
+                <div class="quick-contact-heading">
+                    <span class="contact-kicker"><i class="fas fa-comments"></i> تواصل سريع</span>
+                    <h3>اختار طريقة التواصل المناسبة لك</h3>
+                    <p>اترك بياناتك وسنرد عليك عبر واتساب أو ديسكورد حسب اختيارك.</p>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quick-name">الاسم *</label>
+                        <input type="text" id="quick-name" name="quick-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quick-contact">رقم الهاتف أو اسم المستخدم *</label>
+                        <input type="text" id="quick-contact" name="quick-contact" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preferred-channel">طريقة التواصل *</label>
+                    <select id="preferred-channel" name="preferred-channel" required>
+                        <option value="واتساب">واتساب</option>
+                        <option value="ديسكورد">ديسكورد</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quick-message">رسالتك</label>
+                    <textarea id="quick-message" name="quick-message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">إرسال طلب التواصل</button>
+            </form>
+
+            <div class="contact-direct">
+                <p>تفضل البريد الإلكتروني؟ تواصل معنا مباشرة على <a href="mailto:lensphotography.202@gmail.com">lensphotography.202@gmail.com</a></p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="photo/Lens(2).png" alt="Lens"><strong>LENS<span>。</span></strong></div>
+                <p data-footer-text="description">استوديو إبداعي متخصص في التصوير والتصميم والمونتاج.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/201093310936" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 data-footer-text="pagesTitle">صفحات الموقع</h3>
+                <a href="#Packages" data-footer-text="prices">الأسعار</a>
+                <a href="#Projects" data-footer-text="projects">أعمالنا</a>
+                <a href="#FAQ" data-footer-text="faq">الأسئلة الشائعة</a>
+                <a href="#Contact" data-footer-text="contact">تواصل معنا</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-footer-text="policyTitle">سياسات وقوانين</h3>
+                <a href="#" data-footer-text="privacy">سياسة الخصوصية</a>
+                <a href="#" data-footer-text="terms">شروط الاستخدام</a>
+                <a href="#" data-footer-text="refund">سياسة الاسترجاع</a>
+            </div>
+            <div class="footer-column footer-contact">
+                <h3 data-footer-text="contactTitle">تواصل معنا</h3>
+                <a href="mailto:lensphotography.202@gmail.com"><strong data-footer-text="emailLabel">البريد الإلكتروني:</strong> lensphotography.202@gmail.com</a>
+                <a href="tel:+201093310936"><strong data-footer-text="phoneLabel">الهاتف:</strong> 01093310936</a>
+                <p><strong data-footer-text="addressLabel">العنوان:</strong> <span data-footer-text="address">مصر</span></p>
+            </div>
+        </div>
+        <div class="footer-bottom"><span data-footer-text="copyright">© 2026 لينس. جميع الحقوق محفوظة.</span><span data-footer-text="madeWith">صُنع بإبداع في مصر</span></div>
+    </footer>
+
+    <aside class="support-chat" id="support-chat" aria-label="الدعم الفني">
+        <button class="support-chat-toggle" id="support-chat-toggle" type="button" aria-expanded="false" aria-controls="support-chat-panel">
+            <i class="fas fa-headset"></i>
+            <span>دعم فني</span>
+        </button>
+        <div class="support-chat-panel" id="support-chat-panel" aria-hidden="true" onsubmit="return false;">
+            <div class="support-chat-header">
+                <div>
+                    <strong data-chat-text="header">دردشة الدعم</strong>
+                    <span><i class="fas fa-circle"></i> <span data-chat-text="online">نحن هنا لمساعدتك</span> <b class="support-chat-unread" id="support-chat-unread">0</b></span>
+                </div>
+                <button id="support-chat-close" type="button" aria-label="إغلاق الدعم الفني">&times;</button>
+            </div>
+            <div class="support-chat-step support-chat-welcome is-active" data-chat-step="welcome">
+                <div class="support-chat-step-icon"><i class="fas fa-comments"></i></div>
+                <h3 data-chat-text="welcomeTitle">أهلًا بك! 👋</h3>
+                <p data-chat-text="welcomeQuestion">كيف يمكننا مساعدتك اليوم؟</p>
+                <p data-chat-text="welcomeSubtitle">نحن هنا لمساعدتك!</p>
+                <button class="support-chat-primary" id="support-chat-start" type="button"><span data-chat-text="start">ابدأ المحادثة</span> <i class="fas fa-arrow-left"></i></button>
+                <small data-chat-text="replyTime">نرد عادةً خلال دقائق قليلة.</small>
+            </div>
+            <form class="support-chat-step support-chat-details" data-chat-step="details" id="support-chat-details-form">
+                <p class="support-chat-label" data-chat-text="introduce">عرّفنا بنفسك 👋</p>
+                <label><span data-chat-text="name">الاسم</span><input id="support-chat-name" type="text" placeholder="أحمد" required></label>
+                <label><span data-chat-text="email">البريد الإلكتروني</span><input id="support-chat-contact" type="email" placeholder="ahmed@email.com" required></label>
+                <label><span data-chat-text="topicLabel">كيف يمكننا مساعدتك؟</span>
+                    <select id="support-chat-topic" required>
+                        <option value="" selected disabled data-chat-text="topicPlaceholder">اختر موضوعًا</option>
+                        <option value="باقة تصوير" data-chat-text="topicPhoto">باقة تصوير</option>
+                        <option value="تعديل فيديو" data-chat-text="topicVideo">تعديل فيديو</option>
+                        <option value="استفسار عام" data-chat-text="topicGeneral">استفسار عام</option>
+                    </select>
+                </label>
+                <button class="support-chat-primary" type="submit" data-chat-text="startConversation">ابدأ المحادثة</button>
+                <span class="support-chat-form-error" id="support-chat-form-error" role="alert"></span>
+            </form>
+            <div class="support-chat-step support-chat-waiting" data-chat-step="waiting">
+                <div class="support-chat-step-icon"><i class="fas fa-hourglass-half"></i></div>
+                <h3 data-chat-text="waitingTitle">شكرًا لتواصلك معنا!</h3>
+                <p data-chat-text="waitingText">طلبك في انتظار أحد أفراد فريق الدعم.</p>
+                <p data-chat-text="waitingConnect">سنتواصل معك بمجرد قبول المحادثة.</p>
+            </div>
+            <div class="support-chat-step support-chat-conversation" data-chat-step="conversation">
+                <div class="support-chat-messages" id="support-chat-messages">
+                    <div class="support-chat-message support-chat-message-bot" data-chat-text="conversationGreeting">أهلًا بك! كيف يمكننا مساعدتك اليوم؟</div>
+                </div>
+                <div class="support-chat-quick-actions">
+                    <button type="button" data-chat-message-ar="أريد معرفة تفاصيل الباقات" data-chat-message-en="I want to know about your packages">تفاصيل الباقات</button>
+                    <button type="button" data-chat-message-ar="أريد بدء مشروع جديد" data-chat-message-en="I want to start a new project">بدء مشروع</button>
+                    <button type="button" data-chat-message-ar="أريد الاستفسار عن مدة التسليم" data-chat-message-en="I want to ask about delivery time">مدة التسليم</button>
+                </div>
+                <div class="support-chat-compose">
+                    <label class="support-chat-attach" for="support-chat-file" title="Attach a file"><i class="fas fa-paperclip"></i></label>
+                    <input id="support-chat-file" type="file" accept="image/*" hidden>
+                    <input id="support-chat-input" type="text" placeholder="اكتب رسالتك..." data-chat-placeholder="messagePlaceholder">
+                    <button type="button" id="support-chat-send" aria-label="إرسال الرسالة"><i class="fas fa-paper-plane"></i></button>
+                </div>
+                <small class="support-chat-file-name" id="support-chat-file-name"></small>
+                <button class="support-chat-end" id="support-chat-end" type="button" data-chat-text="end">إنهاء المحادثة</button>
+            </div>
+            <div class="support-chat-step support-chat-complete" data-chat-step="complete">
+                <div class="support-chat-step-icon"><i class="fas fa-check"></i></div>
+                <h3 data-chat-text="completeTitle">تم كل شيء بنجاح! 🎉</h3>
+                <p data-chat-text="completeText">فريقنا سيتواصل معك قريبًا.</p>
+                <p data-chat-text="ratingQuestion">كيف كانت تجربتك؟</p>
+                <div class="support-chat-rating" aria-label="قيّم تجربتك">
+                    <button type="button" data-rating="1">★</button><button type="button" data-rating="2">★</button><button type="button" data-rating="3">★</button><button type="button" data-rating="4">★</button><button type="button" data-rating="5">★</button>
+                </div>
+                <button class="support-chat-primary support-chat-new" id="support-chat-new" type="button" data-chat-text="newConversation">بدء محادثة جديدة</button>
+            </div>
+        </div>
+    </aside>
+
+<script src="script.js?v=20260824-language-1"></script>
+<script type="module" src="firebase-forms.js?v=20260824-language-1"></script>
+
+</body>
+
+</html>
