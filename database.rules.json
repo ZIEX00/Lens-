@@ -1,0 +1,30 @@
+{
+  "rules": {
+    "contactRequests": {
+      ".read": true,
+      "$requestId": {
+        ".write": true
+      }
+    },
+    "conversations": {
+      ".read": true,
+      ".write": true
+    },
+    "siteStats": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "visits": {
+        ".write": true,
+        ".validate": "newData.isNumber()"
+      }
+    },
+    "reviews": {
+      ".indexOn": ["status"],
+      ".read": "auth != null || (query.orderByChild == 'status' && query.equalTo == 'approved')",
+      "$reviewId": {
+        ".write": "auth != null || (!data.exists() && newData.child('status').val() == 'pending') || (data.child('status').val() == 'pending' && newData.child('status').val() == 'pending')",
+        ".validate": "newData.hasChildren(['name', 'service', 'type', 'status', 'createdAt']) && newData.child('name').isString() && newData.child('name').val().length <= 100 && newData.child('service').isString() && (newData.child('type').val() == 'audio' || newData.child('type').val() == 'written') && (newData.child('status').val() == 'pending' || newData.child('status').val() == 'approved' || newData.child('status').val() == 'rejected')"
+      }
+    }
+  }
+}

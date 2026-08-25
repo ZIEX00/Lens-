@@ -1,6 +1,10 @@
-import { ref, push, update, onValue, serverTimestamp, runTransaction } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+import { ref, push, set, update, onValue, serverTimestamp, runTransaction, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
 import { getDownloadURL, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
 import { database, storage } from "./firebase-config.js";
+
+const supabaseUrl = "https://weukqzktnwihdivccnqs.supabase.co";
+const supabasePublishableKey = "sb_publishable_iGOnpCgbcYMte37pX0RMaw_AOtv2qau";
+const supabaseBucket = "lens";
 
 if (!sessionStorage.getItem("lens-visitor-counted")) {
     runTransaction(ref(database, "siteStats/visits"), (visits) => (visits || 0) + 1)
@@ -22,7 +26,7 @@ const saveRequest = async (request) => {
         ...request,
         status: "new",
         unreadForAdmin: true,
-        createdAt: serverTimestamp()
+        createdAt: Date.now()
     });
     return requestRef.key;
 };
@@ -308,3 +312,226 @@ if (supportChatDetailsForm) {
         });
     }
 }
+
+const setupReviewForm = (reviewForm, type) => {
+    if (!reviewForm) return;
+    let recorder;
+    let recordingChunks = [];
+    let recordedBlob = null;
+    let recordingTimer = null;
+    const recordButton = reviewForm.querySelector(".review-record-button");
+    const stopButton = reviewForm.querySelector(".review-stop-button");
+    const status = reviewForm.querySelector(".review-recording-status");
+    const preview = reviewForm.querySelector(".review-audio-preview");
+    const isAudioForm = type === "audio";
+    const imageInput = reviewForm.querySelector('input[name="review-image"]');
+    const imageLabel = imageInput?.closest("label");
+    if (imageLabel) {
+        imageLabel.firstChild.textContent = "صورة العميل";
+        const flagLabel = document.createElement("label");
+        flagLabel.innerHTML = 'علم الدولة<input type="file" name="review-flag" accept="image/png,image/jpeg,image/webp">';
+        imageLabel.parentElement.append(flagLabel);
+    }
+        const uploadReviewImage = async (file, folder, id) => {
+        if (!file || !file.size) return "";
+        if (!file.type.startsWith("image/")) throw new Error("Review image is invalid");
+        const imageBlob = await new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = () => {
+                const scale = Math.min(1, 1200 / Math.max(image.width, image.height));
+                const canvas = document.createElement("canvas");
+                canvas.width = Math.max(1, Math.round(image.width * scale));
+                canvas.height = Math.max(1, Math.round(image.height * scale));
+                canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
+                canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("Review image compression failed")), "image/jpeg", 0.78);
+            };
+            image.onerror = () => reject(new Error("Review image is invalid"));
+            image.src = URL.createObjectURL(file);
+        });
+        if (imageBlob.size > 2000000) throw new Error("Review image is too large");
+        const imagePath = `reviews/${folder}/${id}.jpg`;
+        const uploadResponse = await fetch(`${supabaseUrl}/storage/v1/object/${supabaseBucket}/${imagePath}`, {
+            method: "POST",
+            headers: {
+                apikey: supabasePublishableKey,
+                Authorization: `Bearer ${supabasePublishableKey}`,
+                "Content-Type": "image/jpeg",
+                "x-upsert": "true"
+            },
+            body: imageBlob
+        });
+        if (!uploadResponse.ok) throw new Error(`Supabase review image upload failed: ${uploadResponse.status}`);
+        return `${supabaseUrl}/storage/v1/object/public/${supabaseBucket}/${imagePath}`;
+    };
+    const stopRecording = () => {
+        if (recorder?.state === "recording") recorder.stop();
+        if (recordingTimer) { clearTimeout(recordingTimer); recordingTimer = null; }
+        if (recordButton) recordButton.disabled = false;
+        if (stopButton) stopButton.disabled = true;
+    };
+    recordButton?.addEventListener("click", async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            recordingChunks = [];
+            recorder = new MediaRecorder(stream, { audioBitsPerSecond: 16000 });
+            recorder.addEventListener("dataavailable", (event) => recordingChunks.push(event.data));
+            recorder.addEventListener("stop", () => {
+                stream.getTracks().forEach((track) => track.stop());
+                recordedBlob = new Blob(recordingChunks, { type: recorder.mimeType || "audio/webm" });
+                if (preview) { preview.src = URL.createObjectURL(recordedBlob); preview.hidden = false; }
+                if (status) status.textContent = "تم حفظ التسجيل، يمكنك إرساله الآن";
+            });
+            recorder.start();
+            recordButton.disabled = true;
+            if (stopButton) stopButton.disabled = false;
+            if (status) status.textContent = "جاري التسجيل... (الحد الأقصى دقيقة)";
+            recordingTimer = setTimeout(() => { if (status) status.textContent = "تم إيقاف التسجيل بعد دقيقة"; stopRecording(); }, 60000);
+        } catch (error) {
+            if (status) status.textContent = "تعذر الوصول إلى الميكروفون";
+            console.error("Review recorder error:", error);
+        }
+    });
+    stopButton?.addEventListener("click", stopRecording);
+    reviewForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (recorder?.state === "recording") await new Promise((resolve) => { recorder.addEventListener("stop", resolve, { once: true }); stopRecording(); });
+        const formData = new FormData(reviewForm);
+        const stars = reviewForm.querySelectorAll(".review-rating button.is-selected").length;
+        const submitButton = reviewForm.querySelector("button[type=submit]");
+        if (submitButton) submitButton.disabled = true;
+        try {
+            if (isAudioForm && !recordedBlob) throw new Error("Record an audio review first");
+            if (recordedBlob && recordedBlob.size > 800000) throw new Error("Audio recording is too large");
+            const reviewId = isAudioForm ? crypto.randomUUID() : push(ref(database, "reviews")).key;
+            const imageUrl = await uploadReviewImage(formData.get("review-image"), "photos", reviewId);
+            const flagUrl = await uploadReviewImage(formData.get("review-flag"), "flags", reviewId);
+            if (isAudioForm) {
+                const audioPath = `reviews/${reviewId}.webm`;
+                let audioUrl = "";
+                const uploadResponse = await fetch(`${supabaseUrl}/storage/v1/object/${supabaseBucket}/${audioPath}`, {
+                    method: "POST",
+                    headers: {
+                        apikey: supabasePublishableKey,
+                        Authorization: `Bearer ${supabasePublishableKey}`,
+                        "Content-Type": recordedBlob.type || "audio/webm",
+                        "x-upsert": "false"
+                    },
+                    body: recordedBlob
+                });
+                if (!uploadResponse.ok) throw new Error(`Supabase audio upload failed: ${uploadResponse.status}`);
+                audioUrl = `${supabaseUrl}/storage/v1/object/public/${supabaseBucket}/${audioPath}`;
+                const supabaseResponse = await fetch(`${supabaseUrl}/rest/v1/reviews`, {
+                    method: "POST",
+                    headers: { apikey: supabasePublishableKey, Authorization: `Bearer ${supabasePublishableKey}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+                    body: JSON.stringify({ id: reviewId, name: formData.get("review-name"), service: formData.get("review-service"), country: formData.get("review-country"), image_url: imageUrl, flag_url: flagUrl, message: "", rating: stars, type, audio_url: audioUrl, status: "pending" })
+                });
+                if (!supabaseResponse.ok) throw new Error(`Supabase review save failed: ${supabaseResponse.status}`);
+            } else {
+                await set(ref(database, `reviews/${reviewId}`), { name: formData.get("review-name"), service: formData.get("review-service"), country: formData.get("review-country"), imageUrl, flagUrl, message: formData.get("review-message") || "", rating: stars, type, audioUrl: "", status: "pending", createdAt: Date.now() });
+            }
+            reviewForm.reset(); recordedBlob = null; if (preview) { preview.hidden = true; preview.removeAttribute("src"); } if (status) status.textContent = "يمكنك تسجيل رسالة صوتية قصيرة"; reviewForm.querySelectorAll(".review-rating button").forEach((star) => star.classList.remove("is-selected")); showFormToast("تم إرسال تقييمك للمراجعة بنجاح");
+        } catch (error) {
+            const message = error.message.includes("Audio recording is too large")
+                ? "التسجيل كبير جدًا، اجعله أقصر من دقيقة"
+                : error.message.includes("Review image")
+                    ? "صورة العميل أو العلم غير صالحة أو حجمها كبير"
+                : error.message.includes("Record an audio")
+                    ? "سجّل رأيك الصوتي أولًا"
+                    : recordedBlob
+                    ? "التسجيل كبير جدًا للخطة المجانية، سجّل رسالة أقصر"
+                    : "تعذر إرسال التقييم، حاول مرة أخرى";
+            showFormToast(message);
+            console.error("Firebase review error:", error);
+        } finally { if (submitButton) submitButton.disabled = false; }
+    });
+};
+
+let activeReviewAudio = null;
+const connectReviewAudio = (audio, playButton, card) => {
+    audio.addEventListener("play", () => {
+        if (activeReviewAudio && activeReviewAudio !== audio) activeReviewAudio.pause();
+        activeReviewAudio = audio;
+        playButton.classList.add("is-playing");
+        card.classList.add("is-playing");
+    });
+    const reset = () => {
+        playButton.classList.remove("is-playing");
+        card.classList.remove("is-playing");
+        if (activeReviewAudio === audio) activeReviewAudio = null;
+    };
+    audio.addEventListener("pause", reset);
+    audio.addEventListener("ended", reset);
+    playButton.addEventListener("click", () => { audio.paused ? audio.play() : audio.pause(); });
+};
+
+setupReviewForm(document.getElementById("audio-client-review-form"), "audio");
+setupReviewForm(document.getElementById("written-client-review-form"), "written");
+
+const renderApprovedReviews = () => onValue(query(ref(database, "reviews"), orderByChild("status"), equalTo("approved")), (snapshot) => {
+    const audioGrid = document.querySelector(".audio-testimonials-grid");
+    const writtenGrid = document.querySelector(".written-testimonials");
+    if (!audioGrid || !writtenGrid) return;
+    writtenGrid.querySelectorAll("[data-review-id]").forEach((card) => card.remove());
+    snapshot.forEach((child) => {
+        const review = { id: child.key, ...child.val() };
+        if (review.status !== "approved" || review.type !== "written") return;
+        const card = document.createElement("article");
+        card.dataset.reviewId = review.id;
+        card.className = review.type === "audio" ? "audio-testimonial-card" : "testimonial-card";
+        if (review.type === "audio") {
+            card.innerHTML = `<div class="testimonial-card-top"><div class="testimonial-avatar"></div><div class="testimonial-person"><strong></strong><span></span></div><img class="testimonial-flag" alt="علم الدولة" hidden></div><div class="testimonial-player"><time>رأي عميل</time><div class="testimonial-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button class="testimonial-play" type="button" aria-label="تشغيل الرأي الصوتي"><i class="fas fa-play"></i></button></div>`;
+            if (review.imageUrl) card.querySelector(".testimonial-avatar").innerHTML = `<img src="${review.imageUrl}" alt="صورة ${review.name || "العميل"}">`;
+            if (review.flagUrl) { const flag = card.querySelector(".testimonial-flag"); flag.src = review.flagUrl; flag.hidden = false; }
+            if (!review.imageUrl) card.querySelector(".testimonial-avatar").textContent = (review.name || "ع").trim().charAt(0);
+            card.querySelector(".testimonial-person strong").textContent = review.name || "عميل لينس";
+            card.querySelector(".testimonial-person span").textContent = [review.service, review.country].filter(Boolean).join(" • ") || "تجربة مع لينس";
+            card.querySelector(".testimonial-person").insertAdjacentHTML("beforeend", `<span class="testimonial-stars" aria-label="${review.rating || 0} من 5 نجوم">${"★".repeat(Number(review.rating) || 0)}</span>`);
+            const audio = new Audio(review.audioUrl);
+            const playButton = card.querySelector(".testimonial-play");
+            connectReviewAudio(audio, playButton, card);
+            audioGrid.append(card);
+        } else {
+            card.innerHTML = `<div class="testimonial-card-top"><div class="testimonial-avatar"></div><div class="testimonial-person"><strong></strong><span></span></div><img class="testimonial-flag" alt="علم الدولة" hidden></div><p class="testimonial-quote"></p><div class="testimonial-author"><strong></strong><span></span></div>`;
+            if (review.imageUrl) card.querySelector(".testimonial-avatar").innerHTML = `<img src="${review.imageUrl}" alt="صورة ${review.name || "العميل"}">`;
+            if (review.flagUrl) { const flag = card.querySelector(".testimonial-flag"); flag.src = review.flagUrl; flag.hidden = false; }
+            card.querySelector(".testimonial-quote").textContent = `"${review.message || "تجربة رائعة مع لينس."}"`;
+            card.querySelector(".testimonial-author strong").textContent = review.name || "عميل لينس";
+            card.querySelector(".testimonial-author span").textContent = [review.service, review.country].filter(Boolean).join(" • ") || "عميل لينس";
+            card.querySelector(".testimonial-person").insertAdjacentHTML("beforeend", `<span class="testimonial-stars" aria-label="${review.rating || 0} من 5 نجوم">${"★".repeat(Number(review.rating) || 0)}</span>`);
+            writtenGrid.append(card);
+        }
+    });
+});
+renderApprovedReviews();
+
+const loadApprovedAudioReviews = async () => {
+    const audioGrid = document.querySelector(".audio-testimonials-grid");
+    if (!audioGrid) return;
+    try {
+        const response = await fetch(`${supabaseUrl}/rest/v1/reviews?select=id,name,service,country,image_url,flag_url,rating,audio_url&status=eq.approved&type=eq.audio&order=created_at.desc`, {
+            headers: { apikey: supabasePublishableKey, Authorization: `Bearer ${supabasePublishableKey}` }
+        });
+        if (!response.ok) throw new Error(`Supabase approved audio read failed: ${response.status}`);
+        audioGrid.replaceChildren();
+        (await response.json()).forEach((review) => {
+            if (!review.audio_url) return;
+            const card = document.createElement("article");
+            card.className = "audio-testimonial-card";
+            card.dataset.reviewId = review.id;
+            card.innerHTML = `<div class="testimonial-card-top"><div class="testimonial-avatar"></div><div class="testimonial-person"><strong></strong><span></span></div><img class="testimonial-flag" alt="علم الدولة" hidden></div><div class="testimonial-player"><time>رأي عميل</time><div class="testimonial-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button class="testimonial-play" type="button" aria-label="تشغيل الرأي الصوتي"><i class="fas fa-play"></i></button></div>`;
+            if (review.image_url) card.querySelector(".testimonial-avatar").innerHTML = `<img src="${review.image_url}" alt="صورة ${review.name || "العميل"}">`;
+            if (review.flag_url) { const flag = card.querySelector(".testimonial-flag"); flag.src = review.flag_url; flag.hidden = false; }
+            if (!review.image_url) card.querySelector(".testimonial-avatar").textContent = (review.name || "ع").trim().charAt(0);
+            card.querySelector(".testimonial-person strong").textContent = review.name || "عميل لينس";
+            card.querySelector(".testimonial-person span").textContent = [review.service, review.country].filter(Boolean).join(" • ") || "تجربة مع لينس";
+            card.querySelector(".testimonial-person").insertAdjacentHTML("beforeend", `<span class="testimonial-stars" aria-label="${review.rating || 0} من 5 نجوم">${"★".repeat(Number(review.rating) || 0)}</span>`);
+            const audio = new Audio(review.audio_url);
+            const playButton = card.querySelector(".testimonial-play");
+            connectReviewAudio(audio, playButton, card);
+            audioGrid.append(card);
+        });
+    } catch (error) {
+        console.error("Supabase approved audio reviews error:", error);
+    }
+};
+loadApprovedAudioReviews();

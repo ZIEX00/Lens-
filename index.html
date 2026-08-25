@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -165,7 +165,6 @@
                         <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </article>
-
                 <article class="project-card">
                     <div class="project-thumbnail">
                         <img alt="TikTok product ads thumbnail" src="https://images.unsplash.com/photo-1694878981702-150c7d04f874" />
@@ -176,7 +175,6 @@
                         <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </article>
-
                 <article class="project-card">
                     <div class="project-thumbnail">
                         <img alt="YouTube vlog editing thumbnail" src="https://images.unsplash.com/photo-1624893395745-a85e2a959c74" />
@@ -316,39 +314,31 @@
             </div>
         </div>
     </section>
-    <!-- Testimonials Section -->
-    <section id="Testimonials" class="section testimonials-section">
+
+    <!-- Testimonials Section -->    <section class="section audio-testimonials-section" aria-labelledby="audio-testimonials-title">
         <div class="container">
-            <div class="testimonials-heading">
-                <span class="testimonials-kicker"><i class="fas fa-quote-right"></i> تجارب حقيقية</span>
-                <h2 class="section-title">ماذا يقول <em>عملاؤنا؟</em></h2>
-                <p class="section-subtitle">كلمات من أصحاب المحتوى الذين عملنا معهم.</p>
-            </div>
-            <div class="testimonials-grid">
-                <article class="testimonial-card">
-                    <p class="testimonial-quote">"لينس ساعدني أحوّل قناتي إلى محتوى احترافي. فهمهم للإيقاع والسرد ممتاز."</p>
-                    <div class="testimonial-author">
-                        <strong>سارة جونسون</strong>
-                        <span>صانعة محتوى على يوتيوب</span>
-                    </div>
-                </article>
-
-
-                <article class="testimonial-card">
-                    <p class="testimonial-quote">"تسليم سريع وجودة احترافية ودائمًا يفهمون المطلوب من أول مرة."</p>
-                    <div class="testimonial-author">
-                        <strong>إيميلي رودريغيز</strong>
-                        <span>مديرة سوشيال ميديا</span>
-                    </div>
-                </article>
-
-                <article class="testimonial-card">
-                    <p class="testimonial-quote">"الاهتمام بالتفاصيل واضح في كل قصّة وانتقال وترجمة. هذا ما يميزهم."</p>
-                    <div class="testimonial-author">
-                        <strong>ديفيد بارك</strong>
-                        <span>صانع محتوى</span>
-                    </div>
-                </article>
+            <div class="testimonials-heading"><span class="testimonials-kicker"><i class="fas fa-microphone-lines"></i> آراء بالصوت</span><h2 id="audio-testimonials-title" class="section-title">اسمع رأي <em>عملائنا.</em></h2><p class="section-subtitle">تجارب قصيرة بصوت أصحاب المشاريع الذين وثقوا في لينس.</p></div>
+            <div class="audio-testimonials-grid"><!-- Firebase approved audio reviews render here. --></div>
+        </div>
+    </section>    <section id="Testimonials" class="section testimonials-section">
+        <div class="container">
+            <div class="testimonials-heading"><span class="testimonials-kicker"><i class="fas fa-quote-right"></i> تجارب حقيقية</span><h2 class="section-title">ماذا يقول <em>عملاؤنا؟</em></h2><p class="section-subtitle">كلمات من أصحاب المحتوى الذين عملنا معهم.</p></div>
+            <div class="testimonials-grid written-testimonials"><!-- Firebase approved written reviews render here. --></div>
+        </div>
+    </section>
+    <section id="ClientReview" class="section review-journey-section" aria-labelledby="review-journey-title">
+        <div class="container">
+            <div class="review-journey-heading"><span class="testimonials-kicker"><i class="fas fa-sparkles"></i> تقييم العميل</span><h2 id="review-journey-title" class="section-title">رحلة العميل <em>لإضافة رأيه.</em></h2><p class="section-subtitle">خطوات بسيطة تساعدنا على مشاركة تجربتك مع عملائنا القادمين.</p></div>
+            <div class="review-steps"><div class="review-step"><span>01</span><strong>افتح صفحة آراء العملاء</strong></div><div class="review-step"><span>02</span><strong>اكتب بياناتك</strong></div><div class="review-step"><span>03</span><strong>اختر الخدمة</strong></div><div class="review-step"><span>04</span><strong>قيّم تجربتك</strong></div><div class="review-step"><span>05</span><strong>أرسل رأيك</strong></div></div>
+            <div class="review-forms-grid">
+                <form class="review-form review-form-audio" id="audio-client-review-form">
+                    <div class="review-form-intro"><span class="review-form-icon"><i class="fas fa-microphone"></i></span><h3>شاركنا رأيك بصوتك</h3><p>سجّل رسالة صوتية قصيرة، وبعد الموافقة ستظهر هنا.</p><button type="submit" class="btn btn-primary">إرسال الرأي الصوتي <i class="fas fa-paper-plane"></i></button></div>
+                    <div class="review-form-fields"><div class="review-form-row"><label>اكتب اسمك<input type="text" name="review-name" required></label><label>اختر الخدمة<select name="review-service" required><option value="">اختر الخدمة</option><option>مونتاج فيديو</option><option>تصوير</option><option>تصميم</option></select></label></div><div class="review-form-row"><label>الدولة<input type="text" name="review-country" placeholder="مصر" required></label><label>علم الدولة<input type="file" name="review-image" accept="image/png,image/jpeg,image/webp"></label></div><div class="review-rating"><span>قيّم تجربتك</span><div><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button></div></div><div class="review-recorder"><button type="button" class="review-record-button"><i class="fas fa-microphone"></i> تسجيل رأيي بصوتي</button><button type="button" class="review-stop-button" disabled><i class="fas fa-stop"></i> إيقاف التسجيل</button><span class="review-recording-status">يمكنك تسجيل رسالة صوتية قصيرة</span><audio class="review-audio-preview" controls hidden></audio></div></div>
+                </form>
+                <form class="review-form review-form-written" id="written-client-review-form">
+                    <div class="review-form-intro"><span class="review-form-icon"><i class="fas fa-pen"></i></span><h3>شاركنا رأيك المكتوب</h3><p>اكتب تجربتك، وبعد الموافقة ستظهر هنا.</p><button type="submit" class="btn btn-primary">إرسال الرأي المكتوب <i class="fas fa-paper-plane"></i></button></div>
+                    <div class="review-form-fields"><div class="review-form-row"><label>اكتب اسمك<input type="text" name="review-name" required></label><label>اختر الخدمة<select name="review-service" required><option value="">اختر الخدمة</option><option>مونتاج فيديو</option><option>تصوير</option><option>تصميم</option></select></label></div><div class="review-form-row"><label>الدولة<input type="text" name="review-country" placeholder="مصر" required></label><label>علم الدولة<input type="file" name="review-image" accept="image/png,image/jpeg,image/webp"></label></div><label>اكتب تجربتك هنا<textarea name="review-message" rows="4" required></textarea></label><div class="review-rating"><span>قيّم تجربتك</span><div><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button></div></div></div>
+                </form>
             </div>
         </div>
     </section>
@@ -625,9 +615,13 @@
         </div>
     </aside>
 
-<script src="script.js?v=20260824-language-1"></script>
-<script type="module" src="firebase-forms.js?v=20260824-language-1"></script>
+<script src="script.js?v=20260825-reviews-2"></script>
+<script type="module" src="firebase-forms.js?v=20260825-split-review-sources-1"></script>
 
 </body>
 
 </html>
+
+
+
+

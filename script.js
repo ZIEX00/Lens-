@@ -347,6 +347,14 @@ if (packageCards.length) {
     }
 }
 
+document.querySelectorAll(".testimonial-play").forEach((button) => {
+    button.addEventListener("click", () => button.classList.toggle("is-playing"));
+});
+
+document.querySelectorAll(".review-rating button").forEach((button, index, buttons) => {
+    button.addEventListener("click", () => buttons.forEach((star, starIndex) => star.classList.toggle("is-selected", starIndex <= index)));
+});
+
 const faqItems = document.querySelectorAll(".faq-item");
 if (faqItems.length) {
     faqItems.forEach((item) => item.classList.add("faq-reveal"));
