@@ -1,16 +1,16 @@
 import { ref, push, set, update, onValue, serverTimestamp, runTransaction, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+import { signInAnonymously } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 import { getDownloadURL, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
-import { database, storage } from "./firebase-config.js";
+import { auth, database, storage } from "./firebase-config.js";
 
 const supabaseUrl = "https://weukqzktnwihdivccnqs.supabase.co";
 const supabasePublishableKey = "sb_publishable_iGOnpCgbcYMte37pX0RMaw_AOtv2qau";
 const supabaseBucket = "lens";
 
-if (!sessionStorage.getItem("lens-visitor-counted")) {
-    runTransaction(ref(database, "siteStats/visits"), (visits) => (visits || 0) + 1)
-        .then(() => sessionStorage.setItem("lens-visitor-counted", "true"))
-        .catch((error) => console.error("Firebase visitor tracking error:", error));
-}
+const visitorAuthReady = auth.currentUser ? Promise.resolve(auth.currentUser) : signInAnonymously(auth).catch((error) => {
+    console.error("Firebase anonymous auth error:", error);
+    return null;
+});
 
 const showFormToast = (message) => {
     const toast = document.getElementById("toast");
@@ -22,8 +22,11 @@ const showFormToast = (message) => {
 };
 
 const saveRequest = async (request) => {
+    const visitor = await visitorAuthReady;
+    if (!visitor) throw new Error("Visitor authentication failed");
     const requestRef = await push(ref(database, "contactRequests"), {
         ...request,
+        ownerUid: visitor.uid,
         status: "new",
         unreadForAdmin: true,
         createdAt: Date.now()
@@ -52,7 +55,12 @@ if (projectForm) {
                 brand: formData.get("brand") || "",
                 platforms: formData.getAll("platform"),
                 contentType: formData.get("content-type") || "",
-                message: formData.get("message") || ""
+                message: formData.get("message") || "",
+                packageName: formData.get("packageName") || "",
+                packagePrice: formData.get("packagePrice") || "",
+                discountPercent: formData.get("discountPercent") || "",
+                couponCode: formData.get("couponCode") || "",
+                discountUsed: Boolean(formData.get("couponCode"))
             });
             projectForm.reset();
             showFormToast("تم إرسال رسالتك بنجاح");
@@ -79,7 +87,12 @@ if (quickContactForm) {
                 name: formData.get("quick-name"),
                 contact: formData.get("quick-contact"),
                 preferredChannel: formData.get("preferred-channel"),
-                message: formData.get("quick-message") || ""
+                message: formData.get("quick-message") || "",
+                packageName: formData.get("packageName") || "",
+                packagePrice: formData.get("packagePrice") || "",
+                discountPercent: formData.get("discountPercent") || "",
+                couponCode: formData.get("couponCode") || "",
+                discountUsed: Boolean(formData.get("couponCode"))
             });
             quickContactForm.reset();
             showFormToast("تم إرسال طلب التواصل بنجاح");
@@ -188,7 +201,9 @@ if (supportChatDetailsForm) {
     const createConversation = async () => {
         const identity = `${chatName.value.trim()}|${chatContact.value.trim()}`;
         let requestId = localStorage.getItem("lens-chat-conversation");
+        let isNewConversation = false;
         if (!requestId || localStorage.getItem("lens-chat-identity") !== identity) {
+            isNewConversation = true;
             requestId = await saveWithTimeout({
                 type: "chatbot",
                 name: chatName.value.trim(),
@@ -200,7 +215,9 @@ if (supportChatDetailsForm) {
             localStorage.setItem("lens-chat-conversation", requestId);
             localStorage.setItem("lens-chat-identity", identity);
         }
-        await update(ref(database, `contactRequests/${requestId}`), { status: "open", unreadForAdmin: true, topic: chatTopic.value, updatedAt: serverTimestamp() });
+        if (isNewConversation) {
+            await update(ref(database, `contactRequests/${requestId}`), { status: "open", unreadForAdmin: true, topic: chatTopic.value, updatedAt: serverTimestamp() });
+        }
         startClientConversation(requestId);
         return requestId;
     };
@@ -212,7 +229,7 @@ if (supportChatDetailsForm) {
         if (button) button.disabled = true;
         try {
             await createConversation();
-            setChatStep("waiting");
+            setChatStep("conversation");
         } catch (error) {
             if (formError) formError.textContent = "تعذر بدء المحادثة، حاول مرة أخرى.";
             console.error("Firebase chatbot start error:", error);
@@ -304,11 +321,7 @@ if (supportChatDetailsForm) {
         startClientConversation(conversationId);
         onValue(ref(database, `contactRequests/${conversationId}/status`), (snapshot) => {
             const status = snapshot.val();
-            setChatStep(status === "resolved" ? "welcome" : status === "accepted" ? "conversation" : "waiting");
-            if (status === "accepted" && !acceptanceNoticeShown) {
-                acceptanceNoticeShown = true;
-                addChatMessage(chatLanguageText("تم قبول المحادثة. يمكنك الآن التحدث مع فريق الدعم.", "Your chat has been accepted. You can now talk to our support team."), true);
-            }
+            setChatStep(status === "resolved" ? "welcome" : status === "open" || status === "accepted" ? "conversation" : "waiting");
         });
     }
 }
@@ -327,9 +340,9 @@ const setupReviewForm = (reviewForm, type) => {
     const imageInput = reviewForm.querySelector('input[name="review-image"]');
     const imageLabel = imageInput?.closest("label");
     if (imageLabel) {
-        imageLabel.firstChild.textContent = "صورة العميل";
+        imageLabel.firstChild.textContent = document.documentElement.lang === "en" ? "Client photo" : "صورة العميل";
         const flagLabel = document.createElement("label");
-        flagLabel.innerHTML = 'علم الدولة<input type="file" name="review-flag" accept="image/png,image/jpeg,image/webp">';
+        flagLabel.innerHTML = `${document.documentElement.lang === "en" ? "Country flag" : "علم الدولة"}<input type="file" name="review-flag" accept="image/png,image/jpeg,image/webp">`;
         imageLabel.parentElement.append(flagLabel);
     }
         const uploadReviewImage = async (file, folder, id) => {
@@ -402,6 +415,7 @@ const setupReviewForm = (reviewForm, type) => {
         try {
             if (isAudioForm && !recordedBlob) throw new Error("Record an audio review first");
             if (recordedBlob && recordedBlob.size > 800000) throw new Error("Audio recording is too large");
+            if (!(await visitorAuthReady)) throw new Error("Visitor authentication failed");
             const reviewId = isAudioForm ? crypto.randomUUID() : push(ref(database, "reviews")).key;
             const imageUrl = await uploadReviewImage(formData.get("review-image"), "photos", reviewId);
             const flagUrl = await uploadReviewImage(formData.get("review-flag"), "flags", reviewId);

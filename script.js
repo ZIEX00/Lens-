@@ -166,12 +166,69 @@ const homepageTranslations = {
     }
 };
 
+homepageTranslations.ar.reviewKicker = "تقييم العميل";
+homepageTranslations.en.reviewKicker = "CLIENT REVIEW";
+homepageTranslations.ar.reviewJourneyTitle = "رحلة العميل <em>لإضافة رأيه.</em>";
+homepageTranslations.en.reviewJourneyTitle = "YOUR <em>REVIEW JOURNEY.</em>";
+homepageTranslations.ar.reviewJourneySubtitle = "خطوات بسيطة تساعدنا على مشاركة تجربتك مع عملائنا القادمين.";
+homepageTranslations.en.reviewJourneySubtitle = "A few simple steps to share your experience with future clients.";
+homepageTranslations.ar.reviewSteps = ["افتح صفحة آراء العملاء", "اكتب بياناتك", "اختر الخدمة", "قيّم تجربتك", "أرسل رأيك"];
+homepageTranslations.en.reviewSteps = ["Open client reviews", "Enter your details", "Choose a service", "Rate your experience", "Submit your review"];
+homepageTranslations.ar.audioReviewTitle = "اسمع رأي <em>عملائنا.</em>";
+homepageTranslations.en.audioReviewTitle = "HEAR FROM <em>OUR CLIENTS.</em>";
+homepageTranslations.ar.audioReviewSubtitle = "تجارب قصيرة بصوت أصحاب المشاريع الذين وثقوا في لينس.";
+homepageTranslations.en.audioReviewSubtitle = "Short audio experiences from clients who trusted Lens.";
+homepageTranslations.ar.audioReviewKicker = "آراء بالصوت";
+homepageTranslations.en.audioReviewKicker = "AUDIO REVIEWS";
+homepageTranslations.ar.discountGiftKicker = "مفاجأة من لينس";
+homepageTranslations.en.discountGiftKicker = "A SURPRISE FROM LENS";
+homepageTranslations.ar.discountGiftTitle = "خصمك وصل!";
+homepageTranslations.en.discountGiftTitle = "YOUR DISCOUNT IS HERE!";
+homepageTranslations.ar.discountGiftCopy = "استخدم الكود عند حجز مشروعك القادم";
+homepageTranslations.en.discountGiftCopy = "Use the code when booking your next project.";
+homepageTranslations.ar.giftLabel = "هدية لك";
+homepageTranslations.en.giftLabel = "YOUR GIFT";
+homepageTranslations.ar.audioFormTitle = "شاركنا رأيك بصوتك";
+homepageTranslations.en.audioFormTitle = "SHARE YOUR AUDIO REVIEW";
+homepageTranslations.ar.audioFormDescription = "سجّل رسالة صوتية قصيرة، وبعد الموافقة ستظهر هنا.";
+homepageTranslations.en.audioFormDescription = "Record a short voice message. It will appear here after approval.";
+homepageTranslations.ar.audioFormButton = "إرسال الرأي الصوتي";
+homepageTranslations.en.audioFormButton = "SEND AUDIO REVIEW";
+homepageTranslations.ar.writtenFormTitle = "شاركنا رأيك المكتوب";
+homepageTranslations.en.writtenFormTitle = "SHARE YOUR WRITTEN REVIEW";
+homepageTranslations.ar.writtenFormDescription = "اكتب تجربتك، وبعد الموافقة ستظهر هنا.";
+homepageTranslations.en.writtenFormDescription = "Write about your experience. It will appear here after approval.";
+homepageTranslations.ar.writtenFormButton = "إرسال الرأي المكتوب";
+homepageTranslations.en.writtenFormButton = "SEND WRITTEN REVIEW";
+homepageTranslations.ar.reviewName = "اكتب اسمك";
+homepageTranslations.en.reviewName = "Your name";
+homepageTranslations.ar.reviewService = "اختر الخدمة";
+homepageTranslations.en.reviewService = "Choose a service";
+homepageTranslations.ar.reviewCountry = "الدولة";
+homepageTranslations.en.reviewCountry = "Country";
+homepageTranslations.ar.reviewFlag = "علم الدولة";
+homepageTranslations.en.reviewFlag = "Country flag";
+homepageTranslations.ar.reviewImage = "صورة العميل";
+homepageTranslations.en.reviewImage = "Client photo";
+homepageTranslations.ar.reviewRating = "قيّم تجربتك";
+homepageTranslations.en.reviewRating = "Rate your experience";
+homepageTranslations.ar.reviewMessage = "اكتب تجربتك هنا";
+homepageTranslations.en.reviewMessage = "Write your experience";
+homepageTranslations.ar.reviewRecord = "تسجيل رأيي بصوتي";
+homepageTranslations.en.reviewRecord = "RECORD MY REVIEW";
+homepageTranslations.ar.reviewStop = "إيقاف التسجيل";
+homepageTranslations.en.reviewStop = "STOP RECORDING";
+homepageTranslations.ar.reviewServiceOptions = ["اختر الخدمة", "مونتاج فيديو", "تصوير", "تصميم"];
+homepageTranslations.en.reviewServiceOptions = ["Choose a service", "Video editing", "Photography", "Design"];
+homepageTranslations.ar.reviewRecordingStatus = "يمكنك تسجيل رسالة صوتية قصيرة";
+homepageTranslations.en.reviewRecordingStatus = "You can record a short voice message";
+
 const supportChatTranslations = {
     ar: {
-        header: "دردشة الدعم", online: "نحن هنا لمساعدتك", welcomeTitle: "أهلًا بك! 👋", welcomeQuestion: "كيف يمكننا مساعدتك اليوم؟", welcomeSubtitle: "نحن هنا لمساعدتك!", start: "ابدأ المحادثة", replyTime: "نرد عادةً خلال دقائق قليلة.", introduce: "عرّفنا بنفسك 👋", name: "الاسم", email: "البريد الإلكتروني", topicLabel: "كيف يمكننا مساعدتك؟", topicPlaceholder: "اختر موضوعًا", topicPhoto: "باقة تصوير", topicVideo: "تعديل فيديو", topicGeneral: "استفسار عام", startConversation: "ابدأ المحادثة", waitingTitle: "شكرًا لتواصلك معنا!", waitingText: "طلبك في انتظار أحد أفراد فريق الدعم.", waitingConnect: "سنتواصل معك بمجرد قبول المحادثة.", conversationGreeting: "أهلًا بك! كيف يمكننا مساعدتك اليوم؟", messagePlaceholder: "اكتب رسالتك...", end: "إنهاء المحادثة", completeTitle: "تم كل شيء بنجاح! 🎉", completeText: "فريقنا سيتواصل معك قريبًا.", ratingQuestion: "كيف كانت تجربتك؟", newConversation: "بدء محادثة جديدة", quickActions: ["تفاصيل الباقات", "بدء مشروع", "مدة التسليم"]
+        toggle: "دعم فني", close: "إغلاق الدعم الفني", header: "دردشة الدعم", online: "نحن هنا لمساعدتك", welcomeTitle: "أهلًا بك! 👋", welcomeQuestion: "كيف يمكننا مساعدتك اليوم؟", welcomeSubtitle: "نحن هنا لمساعدتك!", start: "ابدأ المحادثة", replyTime: "نرد عادةً خلال دقائق قليلة.", introduce: "عرّفنا بنفسك 👋", name: "الاسم", email: "البريد الإلكتروني", topicLabel: "كيف يمكننا مساعدتك؟", topicPlaceholder: "اختر موضوعًا", topicPhoto: "باقة تصوير", topicVideo: "تعديل فيديو", topicGeneral: "استفسار عام", startConversation: "ابدأ المحادثة", waitingTitle: "شكرًا لتواصلك معنا!", waitingText: "طلبك في انتظار أحد أفراد فريق الدعم.", waitingConnect: "سنتواصل معك بمجرد قبول المحادثة.", conversationGreeting: "أهلًا بك! كيف يمكننا مساعدتك اليوم؟", messagePlaceholder: "اكتب رسالتك...", end: "إنهاء المحادثة", completeTitle: "تم كل شيء بنجاح! 🎉", completeText: "فريقنا سيتواصل معك قريبًا.", ratingQuestion: "كيف كانت تجربتك؟", newConversation: "بدء محادثة جديدة", quickActions: ["تفاصيل الباقات", "بدء مشروع", "مدة التسليم"]
     },
     en: {
-        header: "Support Chat", online: "We're here to help", welcomeTitle: "Hi! 👋", welcomeQuestion: "How can we help you today?", welcomeSubtitle: "We're here to help!", start: "Start Chat", replyTime: "We usually reply within a few minutes.", introduce: "Please introduce yourself 👋", name: "Your name", email: "Your email", topicLabel: "What can we help you with?", topicPlaceholder: "Select a topic", topicPhoto: "Photography package", topicVideo: "Video editing", topicGeneral: "General inquiry", startConversation: "Start Conversation", waitingTitle: "Thanks for reaching out!", waitingText: "Your request is waiting for a support agent.", waitingConnect: "We'll connect you as soon as someone accepts the chat.", conversationGreeting: "Hi! How can we help you today?", messagePlaceholder: "Type your message...", end: "End conversation", completeTitle: "You're all set! 🎉", completeText: "Our team will be with you in a moment.", ratingQuestion: "How was your experience?", newConversation: "Start a new conversation", quickActions: ["Package details", "Start a project", "Delivery time"]
+        toggle: "Support", close: "Close support chat", header: "Support Chat", online: "We're here to help", welcomeTitle: "Hi! 👋", welcomeQuestion: "How can we help you today?", welcomeSubtitle: "We're here to help!", start: "Start Chat", replyTime: "We usually reply within a few minutes.", introduce: "Please introduce yourself 👋", name: "Your name", email: "Your email", topicLabel: "What can we help you with?", topicPlaceholder: "Select a topic", topicPhoto: "Photography package", topicVideo: "Video editing", topicGeneral: "General inquiry", startConversation: "Start Conversation", waitingTitle: "Thanks for reaching out!", waitingText: "Your request is waiting for a support agent.", waitingConnect: "We'll connect you as soon as someone accepts the chat.", conversationGreeting: "Hi! How can we help you today?", messagePlaceholder: "Type your message...", end: "End conversation", completeTitle: "You're all set! 🎉", completeText: "Our team will be with you in a moment.", ratingQuestion: "How was your experience?", newConversation: "Start a new conversation", quickActions: ["Package details", "Start a project", "Delivery time"]
     }
 };
 
@@ -197,6 +254,10 @@ const applySupportChatLanguage = (language) => {
     document.querySelectorAll("[data-chat-placeholder]").forEach((element) => {
         element.placeholder = text[element.dataset.chatPlaceholder] || element.placeholder;
     });
+    const chatNameInput = document.getElementById("support-chat-name");
+    if (chatNameInput) chatNameInput.placeholder = language === "en" ? "Ahmed" : "أحمد";
+    document.getElementById("support-chat-send")?.setAttribute("aria-label", language === "en" ? "Send message" : "إرسال الرسالة");
+    document.querySelector(".support-chat-attach")?.setAttribute("title", language === "en" ? "Attach a file" : "إرفاق ملف");
     document.querySelectorAll("[data-chat-message-ar]").forEach((button, index) => {
         button.textContent = text.quickActions[index];
     });
@@ -211,7 +272,7 @@ const applySupportChatLanguage = (language) => {
 homepageTranslations.ar.packageEyebrows = ["للمحتوى السريع", "للنمو المستمر", "للعلامات التجارية والحملات"];
 homepageTranslations.ar.packageNames = ["البداية", "صانع المحتوى", "العلامة التجارية"];
 homepageTranslations.ar.packageDescriptions = ["باقة مركزة للمبدعين الذين يحتاجون فيديوهات قصيرة مصقولة وجاهزة للنشر.", "سير عمل شهري متكامل للمبدعين الذين يريدون أسلوبًا ثابتًا وسردًا أقوى.", "شراكة إبداعية مخصصة للعلامات التجارية والحملات وفِرق المحتوى الكبيرة."];
-homepageTranslations.ar.packagePrices = ["00$", "00$", "00$"];
+homepageTranslations.ar.packagePrices = ["100$", "250$", "500$"];
 homepageTranslations.ar.packagePeriods = ["لكل مشروع", "شهريًا", "خطة مخصصة"];
 homepageTranslations.ar.packageFeatures = [["مونتاج فيديوهات قصيرة", "ترجمة وتصميم صوتي", "جولتان من التعديلات", "تصدير جاهز للمنصة"], ["مونتاج قصير وطويل", "موشن جرافيك وصور مصغرة", "توجيه بصري للمحتوى", "أولوية في التسليم"], ["دعم إبداعي متكامل", "باقات محتوى للحملات", "خيارات تصوير وتصميم", "سير عمل مخصص للمشروع"]];
 homepageTranslations.en.packageEyebrows = ["For quick content", "For consistent growth", "For brands and campaigns"];
@@ -224,6 +285,8 @@ homepageTranslations.ar.packageBadge = "الأكثر طلبًا";
 homepageTranslations.ar.packageButtons = ["اختر البداية", "اختر صانع المحتوى", "اختر العلامة التجارية"];
 homepageTranslations.en.packageBadge = "Most popular";
 homepageTranslations.en.packageButtons = ["Choose Starter", "Choose Creator", "Choose Brand"];
+homepageTranslations.ar.allOffers = "عرض جميع العروض";
+homepageTranslations.en.allOffers = "VIEW ALL OFFERS";
 homepageTranslations.ar.projectsTitle = "مختارات من <em>أعمالنا.</em>";
 homepageTranslations.en.projectsTitle = "Selected <em>Projects.</em>";
 homepageTranslations.ar.aboutTitle = "من نحن <em>ولماذا لينس؟</em>";
@@ -258,10 +321,56 @@ homepageTranslations.ar.contactTitle = "جاهز لتطوير <em>محتواك؟
 homepageTranslations.en.contactTitle = "Ready to Level Up <em>Your Content?</em>";
 homepageTranslations.ar.contactKicker = "لنعمل معًا";
 homepageTranslations.en.contactKicker = "LET'S WORK TOGETHER";
+homepageTranslations.ar.workShowcaseKicker = "من داخل الاستوديو";
+homepageTranslations.en.workShowcaseKicker = "INSIDE THE STUDIO";
+homepageTranslations.ar.workShowcaseTitle = "جزء من <em>شغلنا.</em>";
+homepageTranslations.en.workShowcaseTitle = "A Glimpse Of <em>Our Work.</em>";
+homepageTranslations.ar.workShowcaseSubtitle = "ريلز قصيرة تعرض أسلوبنا في المونتاج والتصوير وصناعة المحتوى.";
+homepageTranslations.en.workShowcaseSubtitle = "Short reels showcasing our editing, photography, and content production style.";
+homepageTranslations.ar.workShowcaseLabels = ["01 / ريلز مونتاج", "02 / ريلز تصوير", "03 / ريلز هوية بصرية"];
+homepageTranslations.en.workShowcaseLabels = ["01 / EDITING REEL", "02 / PHOTO REEL", "03 / BRAND REEL"];
+homepageTranslations.ar.workShowcaseNames = ["من اللقطة الخام إلى المشهد", "كل تفصيلة تبدأ من الإضاءة", "هوية تعبر عن القصة"];
+homepageTranslations.en.workShowcaseNames = ["From Raw Footage To The Scene", "Every Detail Starts With Light", "An Identity That Tells The Story"];
+homepageTranslations.ar.workShowcaseAction = "شاهد الريلز";
+homepageTranslations.en.workShowcaseAction = "WATCH REEL";
+
+homepageTranslations.ar.projectsKicker = "أعمالنا الأخيرة";
+homepageTranslations.en.projectsKicker = "LATEST WORK";
+homepageTranslations.ar.couponKicker = "كود الهدية";
+homepageTranslations.en.couponKicker = "GIFT CODE";
+homepageTranslations.ar.couponTitle = "استخدم كود الخصم";
+homepageTranslations.en.couponTitle = "USE YOUR DISCOUNT CODE";
+homepageTranslations.ar.couponDescription = "استخدم الكود الظاهر داخل بوكس الهدية واحصل على خصمك فورًا.";
+homepageTranslations.en.couponDescription = "Use the code shown in the gift box to unlock your discount instantly.";
+homepageTranslations.ar.couponLabel = "كود الخصم";
+homepageTranslations.en.couponLabel = "DISCOUNT CODE";
+homepageTranslations.ar.couponButton = "استخدم الكود";
+homepageTranslations.en.couponButton = "REDEEM CODE";
+homepageTranslations.ar.quickKicker = "تواصل سريع";
+homepageTranslations.en.quickKicker = "QUICK CONTACT";
+homepageTranslations.ar.quickTitle = "اختار طريقة التواصل المناسبة لك";
+homepageTranslations.en.quickTitle = "CHOOSE HOW TO REACH US";
+homepageTranslations.ar.quickDescription = "اترك بياناتك وسنرد عليك عبر واتساب أو ديسكورد حسب اختيارك.";
+homepageTranslations.en.quickDescription = "Leave your details and we will reply through WhatsApp or Discord.";
+homepageTranslations.ar.quickName = "الاسم *";
+homepageTranslations.en.quickName = "Name *";
+homepageTranslations.ar.quickContact = "رقم الهاتف أو اسم المستخدم *";
+homepageTranslations.en.quickContact = "Phone number or username *";
+homepageTranslations.ar.quickChannel = "طريقة التواصل *";
+homepageTranslations.en.quickChannel = "Contact method *";
+homepageTranslations.ar.quickMessage = "رسالتك";
+homepageTranslations.en.quickMessage = "Your message";
+homepageTranslations.ar.quickSubmit = "إرسال طلب التواصل";
+homepageTranslations.en.quickSubmit = "SEND CONTACT REQUEST";
 
 const setTextList = (selector, values, html = false) => document.querySelectorAll(selector).forEach((element, index) => {
     if (values[index] === undefined) return;
-    if (html) element.innerHTML = values[index]; else element.textContent = values[index];
+    if (html) {
+        element.innerHTML = values[index];
+        return;
+    }
+    const icon = element.querySelector("i")?.outerHTML || "";
+    element.innerHTML = icon ? `${icon} ${values[index]}` : values[index];
 });
 
 const setElementText = (selector, value, html = false) => {
@@ -280,6 +389,13 @@ const setTrailingText = (selector, value) => {
     element.lastChild.textContent = value;
 };
 
+const setLabelText = (selector, values) => document.querySelectorAll(selector).forEach((element, index) => {
+    const value = values[index];
+    if (value === undefined) return;
+    const textNode = [...element.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+    if (textNode) textNode.textContent = `${value} `;
+});
+
 const applyHomepageLanguage = (language) => {
     const text = homepageTranslations[language];
     if (!text) return;
@@ -297,6 +413,21 @@ const applyHomepageLanguage = (language) => {
     }
 
     setTextList(".nav-links a", text.nav);
+    document.querySelectorAll("[data-home-text]").forEach((element) => {
+        const value = text[element.dataset.homeText];
+        if (!value) return;
+        const icon = element.querySelector("i")?.outerHTML || "";
+        element.innerHTML = icon ? `${icon} ${value}` : value;
+    });
+    document.querySelectorAll("[data-home-html]").forEach((element) => {
+        const value = text[element.dataset.homeHtml];
+        if (value) element.innerHTML = value;
+    });
+    document.querySelectorAll("[data-home-list]").forEach((element) => {
+        const values = text[element.dataset.homeList];
+        const value = values?.[Number(element.dataset.homeIndex)];
+        if (value) element.textContent = value;
+    });
     setTrailingText(".hero-kicker", ` ${text.heroKicker}`);
     setElementText(".hero-title", text.heroTitle, true);
     setElementText(".hero-subtitle", text.heroSubtitle);
@@ -312,12 +443,16 @@ const applyHomepageLanguage = (language) => {
     setTextList("#Reel .section-title", [text.reelTitle], true); setTextList("#Reel .section-subtitle", [text.reelSubtitle]);
     setTextList("#Projects .section-title", [text.projectsTitle], true); setTextList("#Projects .section-subtitle", [text.projectsSubtitle]);
     setTextList(".project-label", text.projectNames); setTextList(".project-description", text.projectDescriptions); document.querySelectorAll(".project-link").forEach((link, index) => { const icon = link.querySelector("i")?.outerHTML || ""; link.innerHTML = `${text.projectLinks[index]} ${icon}`; });
-    setTextList("#Packages .section-title", [text.packagesTitle]); setTextList("#Packages .section-subtitle", [text.packagesSubtitle]); setTextList(".package-eyebrow", text.packageEyebrows); setTextList(".package-name", text.packageNames); setTextList("#Packages .package-description", text.packageDescriptions); document.querySelectorAll(".package-price").forEach((price, index) => { price.innerHTML = `${text.packagePrices[index]} <span>${text.packagePeriods[index]}</span>`; }); const packageBadge = document.querySelector(".package-badge"); if (packageBadge) packageBadge.textContent = text.packageBadge; setTextList(".package-button", text.packageButtons); document.querySelectorAll(".package-features").forEach((list, packageIndex) => list.querySelectorAll("li").forEach((item, featureIndex) => { const icon = item.querySelector("i")?.outerHTML || ""; item.innerHTML = `${icon} ${text.packageFeatures[packageIndex][featureIndex]}`; }));
+    setTextList("#Packages .section-title", [text.packagesTitle]); setTextList("#Packages .section-subtitle", [text.packagesSubtitle]); setTextList(".package-eyebrow", text.packageEyebrows); setTextList(".package-name", text.packageNames); setTextList("#Packages .package-description", text.packageDescriptions); document.querySelectorAll(".package-price").forEach((price, index) => { const savedDiscount = JSON.parse(sessionStorage.getItem("lens-discount") || "null"); const basePrice = Number(price.dataset.basePrice); const period = text.packagePeriods[index]; if (savedDiscount && basePrice) { const discountedPrice = Math.round(basePrice * (1 - savedDiscount.discount / 100)); price.innerHTML = `<del>${basePrice}$</del> ${discountedPrice}$<span>${period}</span>`; price.classList.add("has-discount"); } else { price.innerHTML = `${text.packagePrices[index]} <span>${period}</span>`; } }); const packageBadge = document.querySelector(".package-badge"); if (packageBadge) packageBadge.textContent = text.packageBadge; setTextList(".package-button", text.packageButtons); document.querySelectorAll(".package-features").forEach((list, packageIndex) => list.querySelectorAll("li").forEach((item, featureIndex) => { const icon = item.querySelector("i")?.outerHTML || ""; item.innerHTML = `${icon} ${text.packageFeatures[packageIndex][featureIndex]}`; }));
+    setElementText(".work-showcase-kicker", `<i class="fas fa-film"></i> ${text.workShowcaseKicker}`, true); setElementText("#WorkShowcase .section-title", text.workShowcaseTitle, true); setElementText("#WorkShowcase .section-subtitle", text.workShowcaseSubtitle); setTextList(".work-showcase-info span", text.workShowcaseLabels); setTextList(".work-showcase-info h3", text.workShowcaseNames); document.querySelectorAll(".work-showcase-overlay").forEach((overlay) => { const icon = overlay.querySelector("i")?.outerHTML || ""; overlay.innerHTML = `${icon} ${text.workShowcaseAction}`; }); setElementText(".packages-all-button", `${text.allOffers} <i class="fas fa-arrow-left"></i>`, true);
     setTextList("#About .section-title", [text.aboutTitle], true); setTextList("#About .about-heading .section-subtitle", [text.aboutSubtitle]); setTrailingText(".about-kicker", ` ${text.aboutLabel}`); setTrailingText(".about-image-label", ` ${text.aboutImageLabel}`); document.querySelectorAll(".about-stats span").forEach((item, index) => { const strong = item.querySelector("strong")?.outerHTML || ""; item.innerHTML = `${strong} ${text.aboutStats[index]}`; }); setElementText(".about-text", text.aboutText); setElementText(".skills-title", text.skillsTitle); document.querySelectorAll(".skills-list li").forEach((item, index) => { const icon = item.querySelector("i")?.outerHTML || ""; item.innerHTML = `${icon} ${text.skills[index]}`; });
     setTextList(".process-section .section-title", [text.processTitle], true); setTextList(".process-section .section-subtitle", [text.processSubtitle]); setTrailingText(".process-kicker", ` ${text.processKicker}`); setTextList(".process-step-title", text.processTitles); setTextList(".process-step-description", text.processDescriptions);
     setTextList("#Testimonials .section-title", [text.testimonialsTitle], true); setTextList("#Testimonials .section-subtitle", [text.testimonialsSubtitle]); setTrailingText(".testimonials-kicker", ` ${text.testimonialsKicker}`); setTextList(".testimonial-quote", text.testimonials); setTextList(".testimonial-author strong", text.authors); setTextList(".testimonial-author span", text.roles);
     setTextList("#FAQ .section-title", [text.faqTitle], true); setTextList("#FAQ .section-subtitle", [text.faqSubtitle]); setTrailingText(".faq-kicker", ` ${text.faqKicker}`); setTextList(".faq-question", text.faqQuestions); setTextList(".faq-answer p", text.faqAnswers);
     setTextList("#Contact .section-title", [text.contactTitle], true); setTextList("#Contact .section-subtitle", [text.contactSubtitle]); setTrailingText(".contact-kicker", ` ${text.contactKicker}`); setTextList(".form-group > label", text.labels); setTextList(".checkbox-label span", text.platforms); setTextList(".radio-label span", text.contentTypes); setElementText("#project-contact-form .btn-submit", text.send);
+    setLabelText("#ClientReview .review-form-row label", [text.reviewName, text.reviewService, text.reviewCountry, text.reviewFlag, text.reviewName, text.reviewService, text.reviewCountry, text.reviewFlag]); setLabelText("#ClientReview .review-form-fields > label", [text.reviewMessage]); setTextList("#ClientReview .review-rating > span", [text.reviewRating, text.reviewRating]); setTextList("#ClientReview .review-record-button", [text.reviewRecord]); setTextList("#ClientReview .review-stop-button", [text.reviewStop]); document.querySelectorAll("#ClientReview select[name='review-service']").forEach((select) => select.querySelectorAll("option").forEach((option, index) => { option.textContent = text.reviewServiceOptions[index] || option.textContent; })); document.querySelectorAll("#ClientReview input[name='review-country']").forEach((input) => { input.placeholder = language === "en" ? "Egypt" : "مصر"; }); setTextList("#ClientReview .review-recording-status", [text.reviewRecordingStatus, text.reviewRecordingStatus]);
+    document.querySelectorAll("#ClientReview .review-form-row label").forEach((label, index) => { const labels = language === "en" ? ["Your name", "Choose a service", "Country", "Client photo", "Country flag", "Your name", "Choose a service", "Country", "Client photo", "Country flag"] : ["اكتب اسمك", "اختر الخدمة", "الدولة", "صورة العميل", "علم الدولة", "اكتب اسمك", "اختر الخدمة", "الدولة", "صورة العميل", "علم الدولة"]; const textNode = [...label.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim()); if (textNode) textNode.textContent = `${labels[index]} `; });
+    document.querySelectorAll("#quick-contact-form #preferred-channel option").forEach((option, index) => { option.textContent = (language === "en" ? ["WhatsApp", "Discord"] : ["واتساب", "ديسكورد"])[index]; });
     const contactDirect = document.querySelector(".contact-direct p"); if (contactDirect) contactDirect.innerHTML = `${text.direct} <a href="mailto:lensphotography.202@gmail.com">lensphotography.202@gmail.com</a>`; const footerText = document.querySelector(".footer p"); if (footerText) footerText.textContent = text.footer;
     const videoModal = document.getElementById("video-modal"); const imageModal = document.getElementById("image-modal"); if (videoModal) videoModal.setAttribute("aria-label", text.modalVideo); if (imageModal) imageModal.setAttribute("aria-label", text.modalPhoto); const videoClose = document.querySelector("#video-modal .media-modal-close"); if (videoClose) videoClose.setAttribute("aria-label", text.closeVideo); const imageClose = document.querySelector("#image-modal .media-modal-close"); if (imageClose) imageClose.setAttribute("aria-label", text.closePhoto);
     localStorage.setItem("lens-language", language);
@@ -379,3 +514,112 @@ portfolioVideo.addEventListener("error", () => {
 portfolioImage.addEventListener("error", () => {
     showMediaError(imageModal, "Add your photo at photo/portfolio-image.jpg to display it here.");
 });
+
+const discountGiftPercent = document.getElementById("discount-gift-percent");
+const discountGift = document.getElementById("discount-gift");
+const discountGiftTrigger = document.getElementById("discount-gift-trigger");
+const discountGiftPanel = document.getElementById("discount-gift-panel");
+const discountGiftClose = document.getElementById("discount-gift-close");
+const discountGiftCode = document.getElementById("discount-gift-code");
+const discountGiftCopy = document.getElementById("discount-gift-copy");
+const discountGiftCopyStatus = document.getElementById("discount-gift-copy-status");
+const couponEntryInput = document.getElementById("coupon-entry-input");
+const applyCouponButton = document.getElementById("apply-coupon");
+const couponEntryStatus = document.getElementById("coupon-entry-status");
+sessionStorage.removeItem("lens-discount");
+sessionStorage.removeItem("lens-discount-end");
+let savedDiscount = null;
+const campaignEnd = Number(localStorage.getItem("lens-campaign-end")) || Date.now() + 30 * 24 * 60 * 60 * 1000;
+localStorage.setItem("lens-campaign-end", campaignEnd);
+
+const createDiscountCode = (discount) => `LENS${discount}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+const applyDiscountToPrices = (discount) => document.querySelectorAll(".package-price[data-base-price]").forEach((price) => {
+    const basePrice = Number(price.dataset.basePrice);
+    const discountedPrice = Math.round(basePrice * (1 - discount / 100));
+    const period = price.querySelector("span")?.textContent || "";
+    price.innerHTML = `<del>${basePrice}$</del> ${discountedPrice}$<span>${period}</span>`;
+    price.classList.add("has-discount");
+});
+
+const updateCouponCountdown = () => {
+    const remaining = Math.max(0, campaignEnd - Date.now());
+    const values = [Math.floor(remaining / 86400000), Math.floor(remaining / 3600000) % 24, Math.floor(remaining / 60000) % 60, Math.floor(remaining / 1000) % 60];
+    ["coupon-days", "coupon-hours", "coupon-minutes", "coupon-seconds"].forEach((id, index) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = String(values[index]).padStart(2, "0");
+    });
+};
+updateCouponCountdown();
+setInterval(updateCouponCountdown, 1000);
+
+discountGiftTrigger?.addEventListener("click", () => {
+    if (!savedDiscount) {
+        const discount = Math.floor(Math.random() * 11) + 5;
+        savedDiscount = { code: createDiscountCode(discount), discount };
+        sessionStorage.setItem("lens-discount", JSON.stringify(savedDiscount));
+    }
+    discountGiftPercent.textContent = `${savedDiscount.discount}%`;
+    discountGiftCode.textContent = savedDiscount.code;
+    document.querySelectorAll("[name='discountPercent']").forEach((input) => input.value = savedDiscount.discount);
+    document.querySelectorAll("[name='couponCode']").forEach((input) => input.value = savedDiscount.code);
+    applyDiscountToPrices(savedDiscount.discount);
+    discountGift.classList.add("is-open");
+    discountGiftTrigger.setAttribute("aria-expanded", "true");
+    discountGiftPanel.setAttribute("aria-hidden", "false");
+    discountGiftClose.focus();
+});
+
+discountGiftClose?.addEventListener("click", () => {
+    discountGift.classList.remove("is-open");
+    discountGiftTrigger.setAttribute("aria-expanded", "false");
+    discountGiftPanel.setAttribute("aria-hidden", "true");
+    discountGiftTrigger.focus();
+});
+
+discountGiftCopy?.addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(discountGiftCode.textContent);
+        discountGiftCopyStatus.textContent = "تم نسخ الكود";
+    } catch {
+        discountGiftCopyStatus.textContent = "انسخ الكود يدويًا";
+    }
+});
+
+applyCouponButton?.addEventListener("click", () => {
+    savedDiscount = savedDiscount || JSON.parse(sessionStorage.getItem("lens-discount") || "null");
+    const enteredCode = couponEntryInput?.value.trim().toUpperCase();
+    if (!savedDiscount || enteredCode !== savedDiscount.code) {
+        couponEntryStatus.textContent = "افتح الهدية أولًا للحصول على كود صالح";
+        couponEntryStatus.className = "is-invalid";
+        return;
+    }
+    document.querySelectorAll("[name='discountPercent']").forEach((input) => input.value = savedDiscount.discount);
+    document.querySelectorAll("[name='couponCode']").forEach((input) => input.value = savedDiscount.code);
+    applyDiscountToPrices(savedDiscount.discount);
+    couponEntryStatus.textContent = `تم تطبيق خصم ${savedDiscount.discount}%`;
+    couponEntryStatus.className = "is-valid";
+});
+
+discountGiftClose?.addEventListener("click", () => {
+    discountGift.classList.remove("is-open");
+    discountGiftTrigger.setAttribute("aria-expanded", "false");
+    discountGiftPanel.setAttribute("aria-hidden", "true");
+    discountGiftTrigger.focus();
+});
+
+discountGiftCopy?.addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(discountGiftCode.textContent);
+        discountGiftCopyStatus.textContent = "تم نسخ الكود";
+    } catch {
+        discountGiftCopyStatus.textContent = "انسخ الكود يدويًا";
+    }
+});
+
+    document.querySelectorAll(".package-button[data-package-name]").forEach((button) => {
+        button.addEventListener("click", () => {
+            document.querySelectorAll("#project-package-name, #quick-package-name").forEach((input) => input.value = button.dataset.packageName);
+            document.querySelectorAll("#project-package-price, #quick-package-price").forEach((input) => input.value = button.dataset.packagePrice);
+        });
+    });
+    document.querySelectorAll("[data-chat-label]").forEach((element) => element.setAttribute("aria-label", text[element.dataset.chatLabel] || element.getAttribute("aria-label")));

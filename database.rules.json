@@ -1,28 +1,28 @@
 {
   "rules": {
     "contactRequests": {
-      ".read": true,
+      ".read": "auth != null && auth.token.admin == true",
       "$requestId": {
-        ".write": true
+        ".read": "auth != null && (auth.token.admin == true || data.child('ownerUid').val() == auth.uid)",
+        ".write": "auth != null && (auth.token.admin == true || (!data.exists() && newData.child('ownerUid').val() == auth.uid) || (data.child('ownerUid').val() == auth.uid && newData.child('ownerUid').val() == auth.uid))",
+        ".validate": "newData.hasChildren(['ownerUid', 'createdAt']) && newData.child('ownerUid').isString() && newData.child('createdAt').isNumber()"
       }
     },
     "conversations": {
-      ".read": true,
-      ".write": true
+      "$conversationId": {
+        ".read": "auth != null && (auth.token.admin == true || root.child('contactRequests').child($conversationId).child('ownerUid').val() == auth.uid)",
+        ".write": "auth != null && (auth.token.admin == true || root.child('contactRequests').child($conversationId).child('ownerUid').val() == auth.uid)"
+      }
     },
     "siteStats": {
-      ".read": "auth != null",
-      ".write": "auth != null",
-      "visits": {
-        ".write": true,
-        ".validate": "newData.isNumber()"
-      }
+      ".read": "auth != null && auth.token.admin == true",
+      ".write": "auth != null && auth.token.admin == true"
     },
     "reviews": {
       ".indexOn": ["status"],
-      ".read": "auth != null || (query.orderByChild == 'status' && query.equalTo == 'approved')",
+      ".read": "(auth != null && auth.token.admin == true) || (query.orderByChild == 'status' && query.equalTo == 'approved')",
       "$reviewId": {
-        ".write": "auth != null || (!data.exists() && newData.child('status').val() == 'pending') || (data.child('status').val() == 'pending' && newData.child('status').val() == 'pending')",
+        ".write": "(auth != null && auth.token.admin == true) || (auth != null && !data.exists() && newData.child('status').val() == 'pending') || (auth != null && data.child('status').val() == 'pending' && newData.child('status').val() == 'pending')",
         ".validate": "newData.hasChildren(['name', 'service', 'type', 'status', 'createdAt']) && newData.child('name').isString() && newData.child('name').val().length <= 100 && newData.child('service').isString() && (newData.child('type').val() == 'audio' || newData.child('type').val() == 'written') && (newData.child('status').val() == 'pending' || newData.child('status').val() == 'approved' || newData.child('status').val() == 'rejected')"
       }
     }

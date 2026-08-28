@@ -57,7 +57,7 @@
                 <div class="hero-preview-label">فكرتك <strong>إبداعنا</strong></div>
             </div>
             <button type="button" class="hero-floating-tag hero-floating-tag-one" data-video="photo/portfolio-video.mp4" aria-label="فتح فيديو الأعمال"><i class="fas fa-film"></i> فيديو</button>
-            <button type="button" class="hero-floating-tag hero-floating-tag-two" data-image="Photography/Photo/1.webp" aria-label="فتح صورة من الأعمال"><i class="fas fa-camera"></i> صورة</button>
+            <button type="button" class="hero-floating-tag hero-floating-tag-two" data-image="photo/2.webp" aria-label="فتح صورة من الأعمال"><i class="fas fa-camera"></i> صورة</button>
         </div>
         <div class="hero-content">
             <div class="hero-kicker"><span></span> فيديو • تصميم • تصوير</div>
@@ -134,7 +134,7 @@
     <section id="Reel" class="reel-section">
         <div class="container">
             <div class="reel-heading">
-                <span class="reel-kicker"><i class="fas fa-play"></i> SHOWREEL 2025</span>
+                <span class="reel-kicker" data-home-text="reelKicker"><i class="fas fa-play"></i> SHOWREEL 2025</span>
                 <h2 class="section-title">شاهد إبداعنا <em>في الحركة.</em></h2>
                 <p class="section-subtitle">مختارات سريعة من المونتاج والتصوير والتصميم الذي نصنعه للعلامات والمبدعين.</p>
             </div>
@@ -150,7 +150,7 @@
     <section id="Projects" class="section projects-section">
         <div class="container">
             <div class="projects-heading">
-                <span class="projects-kicker"><i class="fas fa-layer-group"></i> أعمالنا الأخيرة</span>
+                <span class="projects-kicker" data-home-text="projectsKicker"><i class="fas fa-layer-group"></i> أعمالنا الأخيرة</span>
                 <h2 class="section-title">مختارات من <em>أعمالنا.</em></h2>
                 <p class="section-subtitle">مشاريع حقيقية للقنوات والعلامات التجارية والحملات.</p>
             </div>
@@ -211,14 +211,14 @@
                     <p class="package-eyebrow">للمحتوى السريع</p>
                     <h3 class="package-name">البداية</h3>
                     <p class="package-description">باقة مركزة للمبدعين الذين يحتاجون فيديوهات قصيرة مصقولة وجاهزة للنشر.</p>
-                    <div class="package-price">00$<span>لكل مشروع</span></div>
+                    <div class="package-price" data-base-price="100">100$<span>لكل مشروع</span></div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> مونتاج فيديوهات قصيرة</li>
                         <li><i class="fas fa-check"></i> ترجمة وتصميم صوتي</li>
                         <li><i class="fas fa-check"></i> جولتان من التعديلات</li>
                         <li><i class="fas fa-check"></i> تصدير جاهز للمنصة</li>
                     </ul>
-                    <a href="#Contact" class="package-button">اختر البداية <i class="fas fa-arrow-left"></i></a>
+                    <a href="#Contact" class="package-button" data-package-name="البداية" data-package-price="100">اختر البداية <i class="fas fa-arrow-left"></i></a>
                 </article>
 
                 <article class="package-card package-card-featured">
@@ -227,14 +227,14 @@
                     <p class="package-eyebrow">للنمو المستمر</p>
                     <h3 class="package-name">صانع المحتوى</h3>
                     <p class="package-description">سير عمل شهري متكامل للمبدعين الذين يريدون أسلوبًا ثابتًا وسردًا أقوى.</p>
-                    <div class="package-price">00$<span>شهريًا</span></div>
+                    <div class="package-price" data-base-price="250">250$<span>شهريًا</span></div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> مونتاج قصير وطويل</li>
                         <li><i class="fas fa-check"></i> موشن جرافيك وصور مصغرة</li>
                         <li><i class="fas fa-check"></i> توجيه بصري للمحتوى</li>
                         <li><i class="fas fa-check"></i> أولوية في التسليم</li>
                     </ul>
-                    <a href="#Contact" class="package-button">اختر صانع المحتوى <i class="fas fa-arrow-left"></i></a>
+                    <a href="#Contact" class="package-button" data-package-name="صانع المحتوى" data-package-price="250">اختر صانع المحتوى <i class="fas fa-arrow-left"></i></a>
                 </article>
 
                 <article class="package-card">
@@ -242,14 +242,91 @@
                     <p class="package-eyebrow">للعلامات التجارية والحملات</p>
                     <h3 class="package-name">العلامة التجارية</h3>
                     <p class="package-description">شراكة إبداعية مخصصة للعلامات التجارية والحملات وفِرق المحتوى الكبيرة.</p>
-                    <div class="package-price">00$<span>خطة مخصصة</span></div>
+                    <div class="package-price" data-base-price="500">500$<span>خطة مخصصة</span></div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> دعم إبداعي متكامل</li>
                         <li><i class="fas fa-check"></i> باقات محتوى للحملات</li>
                         <li><i class="fas fa-check"></i> خيارات تصوير وتصميم</li>
                         <li><i class="fas fa-check"></i> سير عمل مخصص للمشروع</li>
                     </ul>
-                    <a href="#Contact" class="package-button">اختر العلامة التجارية <i class="fas fa-arrow-left"></i></a>
+                    <a href="#Contact" class="package-button" data-package-name="العلامة التجارية" data-package-price="500">اختر العلامة التجارية <i class="fas fa-arrow-left"></i></a>
+                </article>
+            </div>
+            <div class="packages-actions">
+                <a href="offers.html" class="packages-all-button">عرض جميع العروض <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="coupon-redeem-section" id="coupon-redeem" aria-labelledby="coupon-redeem-title">
+        <div class="coupon-redeem-inner">
+            <div class="coupon-redeem-icon"><i class="fas fa-ticket"></i></div>
+            <div class="coupon-redeem-copy">
+                <span data-home-text="couponKicker">كود الهدية</span>
+                <h2 id="coupon-redeem-title" data-home-text="couponTitle">استخدم كود الخصم</h2>
+                <p data-home-text="couponDescription">استخدم الكود الظاهر داخل بوكس الهدية واحصل على خصمك فورًا.</p>
+            </div>
+            <div class="coupon-countdown" aria-label="المدة المتبقية للعرض">
+                <div><strong id="coupon-days">30</strong><span>يوم</span></div><i>:</i><div><strong id="coupon-hours">00</strong><span>ساعة</span></div><i>:</i><div><strong id="coupon-minutes">00</strong><span>دقيقة</span></div><i>:</i><div><strong id="coupon-seconds">00</strong><span>ثانية</span></div>
+            </div>
+            <div class="coupon-progress" aria-hidden="true"><span></span></div>
+            <div class="coupon-redeem-form">
+                <label for="coupon-entry-input" data-home-text="couponLabel">كود الخصم</label>
+                <div class="coupon-redeem-row">
+                    <input type="text" id="coupon-entry-input" placeholder="LENS10-AB12" autocomplete="off">
+                    <button type="button" id="apply-coupon" data-home-text="couponButton">استخدم الكود</button>
+                </div>
+                <span id="coupon-entry-status" role="status" aria-live="polite"></span>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Work Showcase Section -->
+    <section id="WorkShowcase" class="section work-showcase-section">
+        <div class="container">
+            <div class="work-showcase-heading">
+                <span class="work-showcase-kicker"><i class="fas fa-film"></i> من داخل الاستوديو</span>
+                <h2 class="section-title">جزء من <em>شغلنا.</em></h2>
+                <p class="section-subtitle">ريلز قصيرة تعرض أسلوبنا في المونتاج والتصوير وصناعة المحتوى.</p>
+            </div>
+            <div class="work-showcase-grid">
+                <article class="work-showcase-card work-showcase-card-wide">
+                    <button type="button" class="work-showcase-image" data-video="photo/reel-01.mp4" aria-label="فتح ريلز المونتاج">
+                        <video class="work-showcase-video" muted loop autoplay playsinline preload="metadata" poster="photo/Screenshot 2025-11-21 181821.png">
+                            <source src="photo/reel-01.mp4" type="video/mp4">
+                        </video>
+                        <span class="work-showcase-overlay"><i class="fas fa-play"></i> شاهد الريلز</span>
+                    </button>
+                    <div class="work-showcase-info">
+                        <span>01 / ريلز مونتاج</span>
+                        <h3>من اللقطة الخام إلى المشهد</h3>
+                    </div>
+                </article>
+                <article class="work-showcase-card">
+                    <button type="button" class="work-showcase-image" data-video="photo/reel-02.mp4" aria-label="فتح ريلز التصوير">
+                        <video class="work-showcase-video" muted loop autoplay playsinline preload="metadata" poster="photo/bac.hero.jpg">
+                            <source src="photo/reel-02.mp4" type="video/mp4">
+                        </video>
+                        <span class="work-showcase-overlay"><i class="fas fa-play"></i> شاهد الريلز</span>
+                    </button>
+                    <div class="work-showcase-info">
+                        <span>02 / ريلز تصوير</span>
+                        <h3>كل تفصيلة تبدأ من الإضاءة</h3>
+                    </div>
+                </article>
+                <article class="work-showcase-card">
+                    <button type="button" class="work-showcase-image" data-video="photo/reel-03.mp4" aria-label="فتح ريلز الهوية البصرية">
+                        <video class="work-showcase-video" muted loop autoplay playsinline preload="metadata" poster="photo/ChatGPT Image Aug 22, 2026, 02_18_39 AM.png">
+                            <source src="photo/reel-03.mp4" type="video/mp4">
+                        </video>
+                        <span class="work-showcase-overlay"><i class="fas fa-play"></i> شاهد الريلز</span>
+                    </button>
+                    <div class="work-showcase-info">
+                        <span>03 / ريلز هوية بصرية</span>
+                        <h3>هوية تعبر عن القصة</h3>
+                    </div>
                 </article>
             </div>
         </div>
@@ -317,7 +394,7 @@
 
     <!-- Testimonials Section -->    <section class="section audio-testimonials-section" aria-labelledby="audio-testimonials-title">
         <div class="container">
-            <div class="testimonials-heading"><span class="testimonials-kicker"><i class="fas fa-microphone-lines"></i> آراء بالصوت</span><h2 id="audio-testimonials-title" class="section-title">اسمع رأي <em>عملائنا.</em></h2><p class="section-subtitle">تجارب قصيرة بصوت أصحاب المشاريع الذين وثقوا في لينس.</p></div>
+            <div class="testimonials-heading"><span class="testimonials-kicker" data-home-text="audioReviewKicker"><i class="fas fa-microphone-lines"></i> آراء بالصوت</span><h2 id="audio-testimonials-title" class="section-title" data-home-html="audioReviewTitle">اسمع رأي <em>عملائنا.</em></h2><p class="section-subtitle" data-home-text="audioReviewSubtitle">تجارب قصيرة بصوت أصحاب المشاريع الذين وثقوا في لينس.</p></div>
             <div class="audio-testimonials-grid"><!-- Firebase approved audio reviews render here. --></div>
         </div>
     </section>    <section id="Testimonials" class="section testimonials-section">
@@ -328,15 +405,15 @@
     </section>
     <section id="ClientReview" class="section review-journey-section" aria-labelledby="review-journey-title">
         <div class="container">
-            <div class="review-journey-heading"><span class="testimonials-kicker"><i class="fas fa-sparkles"></i> تقييم العميل</span><h2 id="review-journey-title" class="section-title">رحلة العميل <em>لإضافة رأيه.</em></h2><p class="section-subtitle">خطوات بسيطة تساعدنا على مشاركة تجربتك مع عملائنا القادمين.</p></div>
-            <div class="review-steps"><div class="review-step"><span>01</span><strong>افتح صفحة آراء العملاء</strong></div><div class="review-step"><span>02</span><strong>اكتب بياناتك</strong></div><div class="review-step"><span>03</span><strong>اختر الخدمة</strong></div><div class="review-step"><span>04</span><strong>قيّم تجربتك</strong></div><div class="review-step"><span>05</span><strong>أرسل رأيك</strong></div></div>
+            <div class="review-journey-heading"><span class="testimonials-kicker" data-home-text="reviewKicker"><i class="fas fa-sparkles"></i> تقييم العميل</span><h2 id="review-journey-title" class="section-title" data-home-html="reviewJourneyTitle">رحلة العميل <em>لإضافة رأيه.</em></h2><p class="section-subtitle" data-home-text="reviewJourneySubtitle">خطوات بسيطة تساعدنا على مشاركة تجربتك مع عملائنا القادمين.</p></div>
+            <div class="review-steps"><div class="review-step"><span>01</span><strong data-home-list="reviewSteps" data-home-index="0">افتح صفحة آراء العملاء</strong></div><div class="review-step"><span>02</span><strong data-home-list="reviewSteps" data-home-index="1">اكتب بياناتك</strong></div><div class="review-step"><span>03</span><strong data-home-list="reviewSteps" data-home-index="2">اختر الخدمة</strong></div><div class="review-step"><span>04</span><strong data-home-list="reviewSteps" data-home-index="3">قيّم تجربتك</strong></div><div class="review-step"><span>05</span><strong data-home-list="reviewSteps" data-home-index="4">أرسل رأيك</strong></div></div>
             <div class="review-forms-grid">
                 <form class="review-form review-form-audio" id="audio-client-review-form">
-                    <div class="review-form-intro"><span class="review-form-icon"><i class="fas fa-microphone"></i></span><h3>شاركنا رأيك بصوتك</h3><p>سجّل رسالة صوتية قصيرة، وبعد الموافقة ستظهر هنا.</p><button type="submit" class="btn btn-primary">إرسال الرأي الصوتي <i class="fas fa-paper-plane"></i></button></div>
+                    <div class="review-form-intro"><span class="review-form-icon"><i class="fas fa-microphone"></i></span><h3 data-home-text="audioFormTitle">شاركنا رأيك بصوتك</h3><p data-home-text="audioFormDescription">سجّل رسالة صوتية قصيرة، وبعد الموافقة ستظهر هنا.</p><button type="submit" class="btn btn-primary" data-home-text="audioFormButton">إرسال الرأي الصوتي <i class="fas fa-paper-plane"></i></button></div>
                     <div class="review-form-fields"><div class="review-form-row"><label>اكتب اسمك<input type="text" name="review-name" required></label><label>اختر الخدمة<select name="review-service" required><option value="">اختر الخدمة</option><option>مونتاج فيديو</option><option>تصوير</option><option>تصميم</option></select></label></div><div class="review-form-row"><label>الدولة<input type="text" name="review-country" placeholder="مصر" required></label><label>علم الدولة<input type="file" name="review-image" accept="image/png,image/jpeg,image/webp"></label></div><div class="review-rating"><span>قيّم تجربتك</span><div><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button></div></div><div class="review-recorder"><button type="button" class="review-record-button"><i class="fas fa-microphone"></i> تسجيل رأيي بصوتي</button><button type="button" class="review-stop-button" disabled><i class="fas fa-stop"></i> إيقاف التسجيل</button><span class="review-recording-status">يمكنك تسجيل رسالة صوتية قصيرة</span><audio class="review-audio-preview" controls hidden></audio></div></div>
                 </form>
                 <form class="review-form review-form-written" id="written-client-review-form">
-                    <div class="review-form-intro"><span class="review-form-icon"><i class="fas fa-pen"></i></span><h3>شاركنا رأيك المكتوب</h3><p>اكتب تجربتك، وبعد الموافقة ستظهر هنا.</p><button type="submit" class="btn btn-primary">إرسال الرأي المكتوب <i class="fas fa-paper-plane"></i></button></div>
+                    <div class="review-form-intro"><span class="review-form-icon"><i class="fas fa-pen"></i></span><h3 data-home-text="writtenFormTitle">شاركنا رأيك المكتوب</h3><p data-home-text="writtenFormDescription">اكتب تجربتك، وبعد الموافقة ستظهر هنا.</p><button type="submit" class="btn btn-primary" data-home-text="writtenFormButton">إرسال الرأي المكتوب <i class="fas fa-paper-plane"></i></button></div>
                     <div class="review-form-fields"><div class="review-form-row"><label>اكتب اسمك<input type="text" name="review-name" required></label><label>اختر الخدمة<select name="review-service" required><option value="">اختر الخدمة</option><option>مونتاج فيديو</option><option>تصوير</option><option>تصميم</option></select></label></div><div class="review-form-row"><label>الدولة<input type="text" name="review-country" placeholder="مصر" required></label><label>علم الدولة<input type="file" name="review-image" accept="image/png,image/jpeg,image/webp"></label></div><label>اكتب تجربتك هنا<textarea name="review-message" rows="4" required></textarea></label><div class="review-rating"><span>قيّم تجربتك</span><div><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button><button type="button">★</button></div></div></div>
                 </form>
             </div>
@@ -400,6 +477,10 @@
             </div>
 
             <form id="project-contact-form" class="contact-form">
+                <input type="hidden" name="packageName" id="project-package-name">
+                <input type="hidden" name="packagePrice" id="project-package-price">
+                <input type="hidden" name="discountPercent" id="project-discount-percent">
+                <input type="hidden" name="couponCode" id="project-coupon-code">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">الاسم *</label>
@@ -469,33 +550,37 @@
             </form>
 
             <form id="quick-contact-form" class="contact-form quick-contact-form" data-whatsapp-number="201093310936">
+                <input type="hidden" name="packageName" id="quick-package-name">
+                <input type="hidden" name="packagePrice" id="quick-package-price">
+                <input type="hidden" name="discountPercent" id="quick-discount-percent">
+                <input type="hidden" name="couponCode" id="quick-coupon-code">
                 <div class="quick-contact-heading">
-                    <span class="contact-kicker"><i class="fas fa-comments"></i> تواصل سريع</span>
-                    <h3>اختار طريقة التواصل المناسبة لك</h3>
-                    <p>اترك بياناتك وسنرد عليك عبر واتساب أو ديسكورد حسب اختيارك.</p>
+                    <span class="contact-kicker" data-home-text="quickKicker"><i class="fas fa-comments"></i> تواصل سريع</span>
+                    <h3 data-home-text="quickTitle">اختار طريقة التواصل المناسبة لك</h3>
+                    <p data-home-text="quickDescription">اترك بياناتك وسنرد عليك عبر واتساب أو ديسكورد حسب اختيارك.</p>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="quick-name">الاسم *</label>
+                        <label for="quick-name" data-home-text="quickName">الاسم *</label>
                         <input type="text" id="quick-name" name="quick-name" required>
                     </div>
                     <div class="form-group">
-                        <label for="quick-contact">رقم الهاتف أو اسم المستخدم *</label>
+                        <label for="quick-contact" data-home-text="quickContact">رقم الهاتف أو اسم المستخدم *</label>
                         <input type="text" id="quick-contact" name="quick-contact" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="preferred-channel">طريقة التواصل *</label>
+                    <label for="preferred-channel" data-home-text="quickChannel">طريقة التواصل *</label>
                     <select id="preferred-channel" name="preferred-channel" required>
                         <option value="واتساب">واتساب</option>
                         <option value="ديسكورد">ديسكورد</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="quick-message">رسالتك</label>
+                    <label for="quick-message" data-home-text="quickMessage">رسالتك</label>
                     <textarea id="quick-message" name="quick-message" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-submit">إرسال طلب التواصل</button>
+                <button type="submit" class="btn btn-primary btn-submit" data-home-text="quickSubmit">إرسال طلب التواصل</button>
             </form>
 
             <div class="contact-direct">
@@ -545,7 +630,7 @@
     <aside class="support-chat" id="support-chat" aria-label="الدعم الفني">
         <button class="support-chat-toggle" id="support-chat-toggle" type="button" aria-expanded="false" aria-controls="support-chat-panel">
             <i class="fas fa-headset"></i>
-            <span>دعم فني</span>
+            <span data-chat-text="toggle">دعم فني</span>
         </button>
         <div class="support-chat-panel" id="support-chat-panel" aria-hidden="true" onsubmit="return false;">
             <div class="support-chat-header">
@@ -553,7 +638,7 @@
                     <strong data-chat-text="header">دردشة الدعم</strong>
                     <span><i class="fas fa-circle"></i> <span data-chat-text="online">نحن هنا لمساعدتك</span> <b class="support-chat-unread" id="support-chat-unread">0</b></span>
                 </div>
-                <button id="support-chat-close" type="button" aria-label="إغلاق الدعم الفني">&times;</button>
+                <button id="support-chat-close" type="button" aria-label="إغلاق الدعم الفني" data-chat-label="close">&times;</button>
             </div>
             <div class="support-chat-step support-chat-welcome is-active" data-chat-step="welcome">
                 <div class="support-chat-step-icon"><i class="fas fa-comments"></i></div>
@@ -612,6 +697,24 @@
                 </div>
                 <button class="support-chat-primary support-chat-new" id="support-chat-new" type="button" data-chat-text="newConversation">بدء محادثة جديدة</button>
             </div>
+        </div>
+    </aside>
+
+    <aside class="discount-gift" id="discount-gift" aria-label="هدية خصم">
+        <button class="discount-gift-trigger" id="discount-gift-trigger" type="button" aria-expanded="false" aria-controls="discount-gift-panel">
+            <span class="discount-gift-ribbon" aria-hidden="true"></span>
+            <i class="fas fa-gift" aria-hidden="true"></i>
+            <span class="discount-gift-label" data-home-text="giftLabel">هدية لك</span>
+        </button>
+        <div class="discount-gift-panel" id="discount-gift-panel" aria-hidden="true">
+            <button class="discount-gift-close" id="discount-gift-close" type="button" aria-label="إغلاق الهدية">&times;</button>
+            <i class="fas fa-sparkles discount-gift-sparkle" aria-hidden="true"></i>
+            <p class="discount-gift-kicker" data-home-text="discountGiftKicker">مفاجأة من لينس</p>
+            <h2 data-home-text="discountGiftTitle">خصمك وصل!</h2>
+            <p class="discount-gift-copy" data-home-text="discountGiftCopy">استخدم الكود عند حجز مشروعك القادم</p>
+            <strong class="discount-gift-percent" id="discount-gift-percent">--%</strong>
+            <div class="discount-gift-code-row"><code id="discount-gift-code">LENS-XXXX</code><button type="button" id="discount-gift-copy" aria-label="نسخ كود الخصم" title="نسخ الكود"><i class="fas fa-copy" aria-hidden="true"></i></button></div>
+            <span class="discount-gift-copy-status" id="discount-gift-copy-status" role="status" aria-live="polite"></span>
         </div>
     </aside>
 
