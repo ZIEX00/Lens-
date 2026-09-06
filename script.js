@@ -51,6 +51,102 @@ const imageModal = document.getElementById("image-modal");
 const portfolioVideo = document.getElementById("portfolio-video");
 const portfolioImage = document.getElementById("portfolio-image");
 const mediaTriggers = document.querySelectorAll("[data-video], [data-image]");
+const imageModalPrevious = document.querySelector(".image-modal-previous");
+const imageModalNext = document.querySelector(".image-modal-next");
+let expandedImages = [];
+let expandedIndex = 0;
+
+const updateExpandedImage = () => {
+    const activeImage = expandedImages[expandedIndex];
+    if (!activeImage || !portfolioImage) return;
+    portfolioImage.src = activeImage.currentSrc || activeImage.src;
+    portfolioImage.alt = activeImage.alt;
+};
+
+const comingSoonLinks = document.querySelectorAll(".project-link-coming-soon");
+comingSoonLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const toast = document.getElementById("toast");
+        const toastMessage = document.getElementById("toast-message");
+        if (!toast) return;
+        if (toastMessage) toastMessage.textContent = link.dataset.comingSoon || "نعمل على ذلك، قريبًا.";
+        toast.classList.add("show");
+        window.clearTimeout(window.comingSoonToastTimer);
+        window.comingSoonToastTimer = window.setTimeout(() => toast.classList.remove("show"), 4500);
+    });
+});
+
+document.querySelectorAll(".photography-gallery").forEach((gallery) => {
+    const images = [...gallery.querySelectorAll(".gallery-image")];
+    const dots = [...gallery.querySelectorAll(".gallery-dot")];
+    const openButton = gallery.closest(".project-card")?.querySelector(".gallery-open-button");
+    let activeIndex = 0;
+
+    const showImage = (index) => {
+        activeIndex = (index + images.length) % images.length;
+        images.forEach((image, imageIndex) => image.classList.toggle("is-active", imageIndex === activeIndex));
+        dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === activeIndex));
+    };
+
+    gallery.querySelector(".gallery-previous")?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showImage(activeIndex - 1);
+    });
+    gallery.querySelector(".gallery-next")?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showImage(activeIndex + 1);
+    });
+    dots.forEach((dot, dotIndex) => dot.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showImage(dotIndex);
+    }));
+
+    openButton?.addEventListener("click", () => {
+        const activeImage = images[activeIndex];
+        if (!activeImage || !imageModal || !portfolioImage) return;
+        expandedImages = images;
+        expandedIndex = activeIndex;
+        clearMediaErrors(imageModal);
+        updateExpandedImage();
+        imageModal.classList.add("is-open");
+        imageModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+    });
+});
+
+const moveExpandedImage = (direction) => {
+    if (!expandedImages.length) return;
+    expandedIndex = (expandedIndex + direction + expandedImages.length) % expandedImages.length;
+    updateExpandedImage();
+};
+
+imageModalPrevious?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    moveExpandedImage(-1);
+});
+imageModalNext?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    moveExpandedImage(1);
+});
+
+const showcaseVideos = document.querySelectorAll(".work-showcase-video");
+if (showcaseVideos.length && "IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { rootMargin: "160px 0px", threshold: 0.15 });
+
+    showcaseVideos.forEach((video) => videoObserver.observe(video));
+} else {
+    showcaseVideos.forEach((video) => video.play().catch(() => {}));
+}
 
 const showMediaError = (modal, message) => {
     const error = document.createElement("p");

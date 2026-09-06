@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="shortcut icon" href="photo/Lens(2).png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css?v=20260824-images-1">
+    <link rel="stylesheet" href="style.css?v=20260906-performance-1">
     <title>لينس للتصوير والتصميم والمونتاج</title>
 </head>
 <!-- Toast Notification -->
@@ -52,12 +52,12 @@
             
             <div class="hero-preview">
                 <div class="hero-preview-topline"><span class="status-dot"></span> إنتاج لينس <span class="preview-time">00:48</span></div>
-                <div class="hero-preview-image"><img src="photo/bac.hero.jpg" alt="Creative video editing preview"></div>
+                <div class="hero-preview-image"><img src="photo/bac.hero.jpg" alt="Creative video editing preview" decoding="async"></div>
                 <div class="hero-preview-controls"><span><i class="fas fa-play"></i></span><span class="preview-progress"><b></b></span><span>4K</span></div>
                 <div class="hero-preview-label">فكرتك <strong>إبداعنا</strong></div>
             </div>
-            <button type="button" class="hero-floating-tag hero-floating-tag-one" data-video="photo/portfolio-video.mp4" aria-label="فتح فيديو الأعمال"><i class="fas fa-film"></i> فيديو</button>
-            <button type="button" class="hero-floating-tag hero-floating-tag-two" data-image="photo/2.webp" aria-label="فتح صورة من الأعمال"><i class="fas fa-camera"></i> صورة</button>
+            <button type="button" class="hero-floating-tag hero-floating-tag-one" data-video="/photo/Desktop 2026.08.26 - 01.56.01.01.mp4" aria-label="فتح فيديو الأعمال"><i class="fas fa-film"></i> فيديو</button>
+            <button type="button" class="hero-floating-tag hero-floating-tag-two" data-image="/photo/2.webp" aria-label="فتح صورة من الأعمال"><i class="fas fa-camera"></i> صورة</button>
         </div>
         <div class="hero-content">
             <div class="hero-kicker"><span></span> فيديو • تصميم • تصوير</div>
@@ -127,7 +127,9 @@
 
     <div class="media-modal" id="image-modal" aria-hidden="true" role="dialog" aria-label="Portfolio photo">
         <button type="button" class="media-modal-close" aria-label="Close photo">&times;</button>
+        <button type="button" class="image-modal-control image-modal-previous" aria-label="الصورة السابقة"><i class="fas fa-chevron-right"></i></button>
         <img id="portfolio-image" src="" alt="Portfolio preview">
+        <button type="button" class="image-modal-control image-modal-next" aria-label="الصورة التالية"><i class="fas fa-chevron-left"></i></button>
     </div>
 
     <!--rell section-->
@@ -140,7 +142,7 @@
             </div>
             <div class="video-wrapper">
                 <div class="video-frame-top"><span><i class="fas fa-circle"></i> LENS REEL</span><span>00:48 <b>4K</b></span></div>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Fj8rdrOJlHQ" title="فيديو مختارات لينس" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/Fj8rdrOJlHQ" title="فيديو مختارات لينس" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="video-frame-bottom"><span>EDITING / PHOTO / DESIGN</span><span>PLAY YOUR STORY <i class="fas fa-arrow-left"></i></span></div>
             </div>
         </div>
@@ -157,43 +159,52 @@
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-thumbnail">
-                        <img alt="YouTube series highlights thumbnail" src="https://images.unsplash.com/photo-1696389500310-cd6d247cb609" />
+                        <img loading="lazy" decoding="async" alt="YouTube series highlights thumbnail" src="https://images.unsplash.com/photo-1696389500310-cd6d247cb609" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-label">مختارات من سلسلة يوتيوب</h3>
                         <p class="project-description">مونتاج سريع مع موشن جرافيك وسرد قصصي يحافظ على تفاعل الجمهور.</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link project-link-coming-soon" data-coming-soon="نعمل على ذلك، الفيديو سيكون متاحًا قريبًا." aria-label="شاهد الفيديو، متاح قريبًا">شاهد الفيديو <i class="fas fa-clock"></i></a>
                     </div>
                 </article>
                 <article class="project-card">
                     <div class="project-thumbnail">
-                        <img alt="TikTok product ads thumbnail" src="https://images.unsplash.com/photo-1694878981702-150c7d04f874" />
+                        <img loading="lazy" decoding="async" alt="TikTok product ads thumbnail" src="https://images.unsplash.com/photo-1694878981702-150c7d04f874" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-label">إعلانات منتجات تيك توك</h3>
                         <p class="project-description">عرض حيوي للمنتجات مع أصوات رائجة وترجمة وخطافات تلفت الانتباه.</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link project-link-coming-soon" data-coming-soon="نعمل على ذلك، الفيديو سيكون متاحًا قريبًا." aria-label="شاهد الفيديو، متاح قريبًا">شاهد الفيديو <i class="fas fa-clock"></i></a>
                     </div>
                 </article>
                 <article class="project-card">
-                    <div class="project-thumbnail">
-                        <img alt="YouTube vlog editing thumbnail" src="https://images.unsplash.com/photo-1624893395745-a85e2a959c74" />
+                    <div class="project-thumbnail photography-gallery" data-gallery="photo-gallery">
+                        <img class="gallery-image is-active" alt="صورة فوتوغرافية من أعمال لينس" src="photo/bac.hero.jpg" decoding="async" />
+                        <img class="gallery-image" loading="lazy" decoding="async" alt="صورة فوتوغرافية من أعمال لينس" src="photo/ChatGPT Image Aug 22, 2026, 02_18_39 AM.png" />
+                        <img class="gallery-image" loading="lazy" decoding="async" alt="صورة فوتوغرافية من أعمال لينس" src="photo/Screenshot 2025-11-21 181821.png" />
+                        <button type="button" class="gallery-control gallery-previous" aria-label="الصورة السابقة"><i class="fas fa-chevron-right"></i></button>
+                        <button type="button" class="gallery-control gallery-next" aria-label="الصورة التالية"><i class="fas fa-chevron-left"></i></button>
+                        <div class="gallery-dots" aria-label="التنقل بين الصور">
+                            <button type="button" class="gallery-dot is-active" aria-label="الصورة 1"></button>
+                            <button type="button" class="gallery-dot" aria-label="الصورة 2"></button>
+                            <button type="button" class="gallery-dot" aria-label="الصورة 3"></button>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-label">تصوير فوتوغرافي</h3>
                         <p class="project-description">مجموعة صور فوتوغرافية مختارة بعناية لإظهار التفاصيل والهوية.</p>
-                        <a href="Photography/index.html" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الصور <i class="fas fa-external-link-alt"></i></a>
+                        <button type="button" class="project-link gallery-open-button">تصفح الصور <i class="fas fa-images"></i></button>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <div class="project-thumbnail">
-                        <img alt="Instagram tutorial reels thumbnail" src="https://images.unsplash.com/photo-1698997367452-2abb541edf28" />
+                        <img loading="lazy" decoding="async" alt="Instagram tutorial reels thumbnail" src="https://images.unsplash.com/photo-1698997367452-2abb541edf28" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-label">ريلز تعليمية لإنستجرام</h3>
                         <p class="project-description">محتوى تعليمي واضح مع نصوص وعلامات وخطوات بإيقاع جذاب.</p>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="project-link">شاهد الفيديو <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link project-link-coming-soon" data-coming-soon="نعمل على ذلك، الفيديو سيكون متاحًا قريبًا." aria-label="شاهد الفيديو، متاح قريبًا">شاهد الفيديو <i class="fas fa-clock"></i></a>
                     </div>
                 </article>
             </div>
@@ -227,7 +238,7 @@
                     <p class="package-eyebrow">للنمو المستمر</p>
                     <h3 class="package-name">صانع المحتوى</h3>
                     <p class="package-description">سير عمل شهري متكامل للمبدعين الذين يريدون أسلوبًا ثابتًا وسردًا أقوى.</p>
-                    <div class="package-price" data-base-price="250">250$<span>شهريًا</span></div>
+                    <div class="package-price" data-base-price="6000">6000$<span>شهريًا</span></div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> مونتاج قصير وطويل</li>
                         <li><i class="fas fa-check"></i> موشن جرافيك وصور مصغرة</li>
@@ -293,9 +304,9 @@
             </div>
             <div class="work-showcase-grid">
                 <article class="work-showcase-card work-showcase-card-wide">
-                    <button type="button" class="work-showcase-image" data-video="photo/reel-01.mp4" aria-label="فتح ريلز المونتاج">
-                        <video class="work-showcase-video" muted loop autoplay playsinline preload="metadata" poster="photo/Screenshot 2025-11-21 181821.png">
-                            <source src="photo/reel-01.mp4" type="video/mp4">
+                    <button type="button" class="work-showcase-image" data-video="/photo/أحمد ابوزيد قبل و بعد.mp4" aria-label="فتح ريلز المونتاج">
+                        <video class="work-showcase-video" muted loop playsinline preload="none" poster="photo/Screenshot 2025-11-21 181821.png">
+                            <source src="/photo/أحمد ابوزيد قبل و بعد.mp4" type="video/mp4">
                         </video>
                         <span class="work-showcase-overlay"><i class="fas fa-play"></i> شاهد الريلز</span>
                     </button>
@@ -305,9 +316,9 @@
                     </div>
                 </article>
                 <article class="work-showcase-card">
-                    <button type="button" class="work-showcase-image" data-video="photo/reel-02.mp4" aria-label="فتح ريلز التصوير">
-                        <video class="work-showcase-video" muted loop autoplay playsinline preload="metadata" poster="photo/bac.hero.jpg">
-                            <source src="photo/reel-02.mp4" type="video/mp4">
+                    <button type="button" class="work-showcase-image" data-video="/photo/أحمد ابوزيد ممنتج لينس.mp4" aria-label="فتح ريلز التصوير">
+                        <video class="work-showcase-video" muted loop playsinline preload="none" poster="photo/bac.hero.jpg">
+                            <source src="/photo/صلاح ابو المجد.mp4" type="video/mp4">
                         </video>
                         <span class="work-showcase-overlay"><i class="fas fa-play"></i> شاهد الريلز</span>
                     </button>
@@ -317,9 +328,9 @@
                     </div>
                 </article>
                 <article class="work-showcase-card">
-                    <button type="button" class="work-showcase-image" data-video="photo/reel-03.mp4" aria-label="فتح ريلز الهوية البصرية">
-                        <video class="work-showcase-video" muted loop autoplay playsinline preload="metadata" poster="photo/ChatGPT Image Aug 22, 2026, 02_18_39 AM.png">
-                            <source src="photo/reel-03.mp4" type="video/mp4">
+                    <button type="button" class="work-showcase-image" data-video="/photo/WhatsApp Video 2026-08-25 at 1.35.42 AM (1).mp4" aria-label="فتح ريلز الهوية البصرية">
+                        <video class="work-showcase-video" muted loop playsinline preload="none" poster="photo/ChatGPT Image Aug 22, 2026, 02_18_39 AM.png">
+                            <source src="/photo/WhatsApp Video 2026-08-25 at 1.35.42 AM (1).mp4" type="video/mp4">
                         </video>
                         <span class="work-showcase-overlay"><i class="fas fa-play"></i> شاهد الريلز</span>
                     </button>
@@ -342,7 +353,7 @@
             </div>
             <div class="about-grid">
                 <div class="about-image-wrapper">
-                    <img class="about-image" alt="Computer monitor showing a video editing timeline with colorful clips and audio waveforms" src="https://images.unsplash.com/photo-1653043586925-cfb4676c69a2" />
+                    <img class="about-image" loading="lazy" decoding="async" alt="Computer monitor showing a video editing timeline with colorful clips and audio waveforms" src="https://images.unsplash.com/photo-1653043586925-cfb4676c69a2" />
                     <span class="about-image-label"><i class="fas fa-circle"></i> LENS CREATIVE STUDIO</span>
                 </div>
                 <div class="about-content">
